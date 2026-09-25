@@ -3,11 +3,13 @@
 ## Вариант А (используется сейчас): GitHub Pages + домен krontoai.ru
 
 Сервер не нужен. Сайт публикует GitHub Actions (`.github/workflows/pages.yml`) при каждом пуше в `main`.
-HTTPS-сертификат GitHub выпускает сам. Файл `CNAME` в корне задаёт домен `krontoai.ru`.
+HTTPS-сертификат GitHub выпускает сам.
 
 ### 1. Включить Pages (один раз)
 
 GitHub → репозиторий → **Settings → Pages** → *Build and deployment* → **Source: GitHub Actions**.
+
+Там же в поле **Custom domain** впишите `krontoai.ru` и нажмите **Save**. При публикации через Actions домен берётся только из этой настройки, файл `CNAME` в репозитории оставлен для справки.
 
 Затем **Actions → Deploy to GitHub Pages → Run workflow** (или любой пуш в `main`). Через 1–2 минуты сайт доступен по адресу `https://stepankovner.github.io/demo-kronto/`, после настройки DNS — по `https://krontoai.ru`.
 
