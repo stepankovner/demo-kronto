@@ -327,6 +327,7 @@ body:has(#pricing[hidden]) .nav__pricing { display: none; }
   font-weight: 400;
 }
 .fact dd { margin: var(--s-4) 0 0; color: var(--muted); max-width: 40ch; }
+.facts:has(> .fact:only-child) { grid-template-columns: 1fr; }
 
 sup { line-height: 0; font-size: 0.7em; }
 .fn-ref {
@@ -1072,6 +1073,7 @@ sup { line-height: 0; font-size: 0.7em; }
 .plan__list dt { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
 .plan__list dd { margin: 2px 0 0; }
 .plan__cta { align-self: flex-start; }
+.plans__note { margin-top: var(--s-5); font-size: var(--fs-small); }
 
 @media (max-width: 1023px) {
   .plans { grid-template-columns: 1fr; border-top: 0; }

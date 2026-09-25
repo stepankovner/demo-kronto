@@ -12,7 +12,7 @@ const MONTHS_PER_YEAR = 12;
    часов_в_месяц      = сотрудники × обращения × минуты / 60 × WORKING_DAYS_PER_MONTH
    продуктивных_часов = часов_в_месяц × PRODUCTIVE_SHARE
    экономия_₽_в_месяц = продуктивных_часов × стоимость_часа
-   По умолчанию: 200 × 7 × 2 / 60 × 21 = 980 ч → 490 ч → 343 000 ₽ */
+   По умолчанию: 60 × 15 × 2 / 60 × 21 = 630 ч → 315 ч × 910 ₽ → 286 650 ₽ (≈ 286 700) */
 
 export function calculate({ employees, requests, minutes, rate }) {
   const hours = (employees * requests * minutes / 60) * WORKING_DAYS_PER_MONTH;
