@@ -391,7 +391,7 @@ function initDemo() {
         el("span", { class: "badge", text: typo(r.badge) })
       );
       chat.append(box);
-      announce(`Kronto: ${r.title} ${r.text} ${r.badge}`);
+      announce(`kronto: ${r.title} ${r.text} ${r.badge}`);
       revealBottom(box);
       setBusy(false);
       offerMore();
@@ -407,7 +407,7 @@ function initDemo() {
     row.classList.remove("is-concealed");
     if (!reducedMotion.matches) row.classList.add("appear");
     revealBottom(row);
-    announce(`Kronto: ${box.textContent.replace(/\s+/g, " ").trim()}`);
+    announce(`kronto: ${box.textContent.replace(/\s+/g, " ").trim()}`);
     setBusy(false);
     offerMore();
   }
@@ -423,7 +423,7 @@ function initDemo() {
       el("a", { class: "btn btn--dark btn--sm", href: fallback.href, text: fallback.button })
     );
     chat.append(box);
-    announce(`Kronto: ${fallback.text}`);
+    announce(`kronto: ${fallback.text}`);
     revealBottom(box);
     setBusy(false);
     offerMore();
