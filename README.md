@@ -35,7 +35,7 @@ python3 -m http.server 8000
 Форма (`assets/js/form.js`) собирает имя, телефон, компанию, число сотрудников за компьютером, тариф, удобные **день и окно времени** и согласие на обработку данных.
 
 - Дни и окна приходят из API (`GET /api/v1/leads/form`): будни, с завтрашнего дня на 30 дней вперёд, окна 10–12, 12–14, 14–16, 16–18 по Москве. Посетителю не из Москвы под окном показывается его местное время.
-- Заявка уходит в `POST /api/v1/leads` бэкенда `corp-ed`. Там она сохраняется (180 дней), команде приходит **письмо с контактами** на `LEADS_NOTIFY_EMAIL` и **сообщение в Telegram** без персональных данных (тариф, места, время).
+- Заявка уходит в `POST /api/v1/leads` бэкенда `corp-ed`. Там она сохраняется (180 дней) и видна команде в `cli leads list`; письмо с контактами на `LEADS_NOTIFY_EMAIL` приходит, когда в corp-ed есть эта настройка. Уведомлений в Telegram нет: с сервера стенда Telegram недоступен (RISKS №50 в corp-ed).
 - Кнопка «Обсудить тариф» на обороте карточки тарифа сразу выбирает этот тариф в форме.
 - Если API недоступен или запись выключена, форма не теряет заявку: предлагает отправить её письмом (данные подставляются в письмо) или написать в Telegram.
 - Защита от ботов — скрытое поле-ловушка и лимиты по IP на стороне API.
@@ -50,11 +50,11 @@ LEADS_POLICY_URL=https://krontoai.ru/privacy
 LEADS_POLICY_VERSION=2026-10-06
 LEADS_NOTIFY_EMAIL=info@krontoai.ru
 CORS_ALLOWED_ORIGINS=https://krontoai.ru,https://www.krontoai.ru
-TEAM_NOTIFY_TELEGRAM_BOT_TOKEN=…   # бот от @BotFather
-TEAM_NOTIFY_TELEGRAM_CHAT_ID=…     # чат команды
 ```
 
-Письма отправляет почтовый сервис стенда (`MAIL_BACKEND=postbox`, уже настроен). Проверка: `curl -s https://stage.krontoai.ru/api/v1/leads/form` отдаёт `"enabled":true`. Новые заявки — письмом и в `cli leads list`.
+После правки: `cd /opt/kronto && sudo -u deploy docker compose -f compose.yaml up -d`.
+
+Письма отправляет почтовый сервис стенда (`MAIL_BACKEND=postbox`, настроен, тестовое письмо на info@krontoai.ru дошло 06.10). Проверка: `curl -s https://stage.krontoai.ru/api/v1/leads/form` отдаёт `"enabled":true`.
 
 **Версия политики.** `LEADS_POLICY_VERSION` должна совпадать с версией в `privacy.html` (строка «Редакция от … (версия …)»). Поменяли текст политики — новая дата в обоих местах, иначе API ответит «Политика обработки данных обновилась».
 
