@@ -1,104 +1,178 @@
-// Шапка, мобильное меню, вкладки «Для кого», подсветка пункта меню.
+// Шапка, меню, тарифы-перевёртыши, окно «Безопасность и данные»,
+// плавающая кнопка на телефоне и горизонт маяка на первом экране.
 
-/* ——— шапка: линия снизу после прокрутки ——— */
-const header = document.querySelector(".site-header");
-const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
-onScroll();
-window.addEventListener("scroll", onScroll, { passive: true });
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
-/* ——— мобильное меню ——— */
-const burger = document.querySelector(".burger");
-const nav = document.getElementById("site-nav");
+/* ── Активный пункт меню ── */
 
-function setMenu(open, { focusBurger = false } = {}) {
-  burger.setAttribute("aria-expanded", String(open));
-  burger.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
-  nav.classList.toggle("is-open", open);
-  header.classList.toggle("is-menu-open", open);
-  document.body.classList.toggle("is-locked", open);
-  if (open) nav.querySelector("a")?.focus();
-  else if (focusBurger) burger.focus();
+const navLinks = $$("[data-nav]");
+const sections = navLinks.map((a) => document.getElementById(a.dataset.nav)).filter(Boolean);
+
+function markActive() {
+  const line = window.innerHeight * 0.4;
+  let current = "";
+  for (const s of sections) {
+    if (s.getBoundingClientRect().top < line) current = s.id;
+  }
+  // Ниже вопросов (созвон, подвал) ничего не подсвечиваем
+  const contact = document.getElementById("contact");
+  if (contact && contact.getBoundingClientRect().top < line) current = "";
+  navLinks.forEach((a) => {
+    if (a.dataset.nav === current) a.setAttribute("aria-current", "true");
+    else a.removeAttribute("aria-current");
+  });
 }
 
-burger.addEventListener("click", () => setMenu(burger.getAttribute("aria-expanded") !== "true"));
-nav.addEventListener("click", (e) => {
-  if (e.target.closest("a") && nav.classList.contains("is-open")) setMenu(false);
-});
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && nav.classList.contains("is-open")) setMenu(false, { focusBurger: true });
-});
-// Tab по кругу внутри открытого меню
-nav.addEventListener("keydown", (e) => {
-  if (e.key !== "Tab" || !nav.classList.contains("is-open")) return;
-  const items = [...nav.querySelectorAll("a"), burger].filter((n) => n.offsetParent !== null);
-  const first = items[0];
-  const last = items[items.length - 1];
-  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); burger.focus(); }
-  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); burger.focus(); }
-});
-burger.addEventListener("keydown", (e) => {
-  if (e.key === "Tab" && !e.shiftKey && nav.classList.contains("is-open")) {
-    e.preventDefault();
-    nav.querySelector("a")?.focus();
-  }
-});
-window.matchMedia("(min-width: 1024px)").addEventListener("change", (e) => {
-  if (e.matches) setMenu(false);
-});
+/* ── Плавающая кнопка на телефоне ── */
 
-/* ——— активный пункт меню ——— */
-const links = new Map(
-  [...nav.querySelectorAll('.nav__list a[href^="#"]')].map((a) => [a.getAttribute("href").slice(1), a])
-);
-const spy = new IntersectionObserver(
-  (entries) => {
-    for (const entry of entries) {
-      const link = links.get(entry.target.id);
-      if (!link) continue;
-      if (entry.isIntersecting) {
-        links.forEach((a) => { a.classList.remove("is-active"); a.removeAttribute("aria-current"); });
-        link.classList.add("is-active");
-        link.setAttribute("aria-current", "true");
-      }
-    }
-  },
-  { rootMargin: "-45% 0px -50% 0px" }
-);
-links.forEach((_, id) => {
-  const section = document.getElementById(id);
-  if (section) spy.observe(section);
-});
+const mobileCta = $("[data-mobile-cta]");
+const contactSection = document.getElementById("contact");
 
-/* ——— вкладки «Для кого» ——— */
-document.querySelectorAll("[data-tabs]").forEach((root) => {
-  const tabs = [...root.querySelectorAll('[role="tab"]')];
-  const panels = tabs.map((t) => document.getElementById(t.getAttribute("aria-controls")));
+const demoWindow = $("[data-demo]");
+let typing = false;
 
-  function select(i, focus = true) {
-    tabs.forEach((t, j) => {
-      const on = i === j;
-      t.setAttribute("aria-selected", String(on));
-      t.tabIndex = on ? 0 : -1;
-      panels[j].hidden = !on;
-    });
-    if (focus) {
-      tabs[i].focus();
-      tabs[i].scrollIntoView({ block: "nearest", inline: "nearest" });
-    }
-  }
+function updateMobileCta() {
+  if (!mobileCta) return;
+  const vh = window.innerHeight;
+  const pastHero = window.scrollY > vh * 0.8;
+  const contactTop = contactSection ? contactSection.getBoundingClientRect().top : Infinity;
+  // Не закрываем поле ввода демо, когда окно демо внизу экрана
+  const demo = demoWindow ? demoWindow.getBoundingClientRect() : null;
+  const overDemo = demo ? demo.top < vh && demo.bottom > vh - 90 : false;
+  const show = pastHero && contactTop > vh && !overDemo && !typing;
+  if (show) mobileCta.hidden = false;
+  mobileCta.classList.toggle("is-visible", show);
+}
 
-  tabs.forEach((tab, i) => {
-    tab.addEventListener("click", () => select(i));
-    tab.addEventListener("keydown", (e) => {
-      const last = tabs.length - 1;
-      const map = { ArrowRight: i === last ? 0 : i + 1, ArrowLeft: i === 0 ? last : i - 1, Home: 0, End: last };
-      if (e.key in map) {
-        e.preventDefault();
-        select(map[e.key]);
-      }
-    });
+let ticking = false;
+function onScroll() {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    ticking = false;
+    markActive();
+    updateMobileCta();
   });
+}
 
-  root.classList.add("is-ready");
-  select(0, false);
+window.addEventListener("scroll", onScroll, { passive: true });
+window.addEventListener("resize", onScroll, { passive: true });
+// Пока открыта клавиатура, кнопка не нужна
+document.addEventListener("focusin", (e) => {
+  typing = e.target.matches("input:not([type=radio]):not([type=checkbox]), textarea");
+  updateMobileCta();
 });
+document.addEventListener("focusout", () => {
+  typing = false;
+  requestAnimationFrame(updateMobileCta);
+});
+onScroll();
+
+/* ── Мобильное меню ── */
+
+const menuBtn = $("[data-menu-btn]");
+const menu = $("[data-menu]");
+
+function setMenu(open) {
+  if (!menuBtn || !menu) return;
+  menuBtn.setAttribute("aria-expanded", String(open));
+  menuBtn.setAttribute("aria-label", open ? "Закрыть меню" : "Меню");
+  menu.hidden = !open;
+}
+
+if (menuBtn && menu) {
+  menuBtn.addEventListener("click", () => setMenu(menuBtn.getAttribute("aria-expanded") !== "true"));
+  menu.addEventListener("click", (e) => {
+    if (e.target.closest("a")) setMenu(false);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !menu.hidden) {
+      setMenu(false);
+      menuBtn.focus();
+    }
+  });
+  document.addEventListener("click", (e) => {
+    if (!menu.hidden && !e.target.closest("[data-header]")) setMenu(false);
+  });
+}
+
+/* ── Тарифы: карточка переворачивается ── */
+
+function flip(plan, open) {
+  const front = $("[data-plan-front]", plan);
+  const back = $("[data-plan-back]", plan);
+  const more = $("[data-plan-open]", plan);
+  plan.classList.toggle("is-flipped", open);
+  front.inert = open;
+  back.inert = !open;
+  more.setAttribute("aria-expanded", String(open));
+  // Фокус — на то, что видно, иначе клавиатура окажется на скрытой стороне
+  const target = open ? $("[data-plan-close]", back) : more;
+  target.focus({ preventScroll: true });
+}
+
+$$("[data-plan]").forEach((plan) => {
+  $("[data-plan-open]", plan)?.addEventListener("click", () => flip(plan, true));
+  $("[data-plan-close]", plan)?.addEventListener("click", () => flip(plan, false));
+  plan.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && plan.classList.contains("is-flipped")) flip(plan, false);
+  });
+});
+
+// «Обсудить тариф» — выбрать тариф в форме записи
+$$("[data-tariff]").forEach((link) => {
+  link.addEventListener("click", () => {
+    document.dispatchEvent(new CustomEvent("kronto:tariff", { detail: link.dataset.tariff }));
+  });
+});
+
+/* ── Окно «Безопасность и данные» ── */
+
+$$("[data-dialog-open]").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const dialog = document.getElementById(btn.dataset.dialogOpen);
+    if (!dialog || dialog.open) return;
+    if (typeof dialog.showModal === "function") {
+      dialog.showModal();
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      dialog.setAttribute("open", "");
+    }
+    $(".dialog__body", dialog)?.scrollTo(0, 0);
+  });
+});
+
+$$("dialog").forEach((dialog) => {
+  dialog.addEventListener("close", () => {
+    document.documentElement.style.overflow = "";
+  });
+  $$("[data-dialog-close]", dialog).forEach((btn) => btn.addEventListener("click", () => dialog.close()));
+  // Щелчок по затемнению закрывает окно
+  dialog.addEventListener("click", (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+});
+
+/* ── Горизонт маяка — по линии букв «kronto» ── */
+
+const hero = $("[data-hero]");
+const baseline = $("[data-hero-baseline]");
+const beacon = hero ? $("kronto-beacon", hero) : null;
+
+function measureHorizon() {
+  if (!hero || !baseline || !beacon) return;
+  const h = hero.getBoundingClientRect();
+  const b = baseline.getBoundingClientRect();
+  if (!h.height) return;
+  // На узком экране текст стоит под словом — горизонт оставляем маяку
+  const wide = hero.clientWidth >= 1100 && hero.clientWidth / hero.clientHeight >= 1.25;
+  const hz = wide ? Math.round(((h.bottom - b.bottom) / h.height) * 1000) / 1000 : "";
+  if (String(hz) !== (beacon.getAttribute("hz") || "")) beacon.setAttribute("hz", hz);
+}
+
+if (hero) {
+  measureHorizon();
+  document.fonts?.ready.then(measureHorizon);
+  new ResizeObserver(measureHorizon).observe(hero);
+}
