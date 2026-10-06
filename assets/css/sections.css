@@ -214,21 +214,21 @@
   background: linear-gradient(to top, rgba(8, 11, 24, .88) 0%, rgba(8, 11, 24, .55) 28%, rgba(8, 11, 24, 0) 55%);
 }
 
+/* Узкий экран: слово стоит на горизонте, текст — под ним, на воде.
+   Горизонт маяка совпадает с линией букв (main.js, measureHorizon). */
 .hero__content {
   position: relative;
   padding: 0 clamp(20px, 3vw, 44px) clamp(22px, 2.6vw, 40px);
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 28px 48px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 26px;
 }
 
 .hero__word {
-  flex: 1 1 auto;
   min-width: 0;
-  margin: 0 0 -0.035em -0.045em;
-  font-size: clamp(96px, 21vw, 340px);
+  margin: 0 0 0 -0.045em;
+  font-size: clamp(96px, 19vw, 300px);
   font-weight: 600;
   letter-spacing: -0.07em;
   line-height: .74;
@@ -243,12 +243,36 @@
 }
 
 .hero__text {
-  flex: 0 1 360px;
+  max-width: 520px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 18px;
   padding-bottom: 4px;
+}
+
+/* Широкий экран: слово слева на линии горизонта, маяк — в просвете
+   между словом и текстом, текст — справа внизу, на воде. */
+@media (min-width: 1100px) {
+  .hero__content {
+    position: absolute;
+    inset: 0;
+    padding: 0;
+  }
+
+  .hero__word {
+    position: absolute;
+    left: clamp(20px, 3vw, 44px);
+    bottom: 42%;
+    font-size: clamp(150px, 17vw, 300px);
+  }
+
+  .hero__text {
+    position: absolute;
+    right: clamp(20px, 3vw, 44px);
+    bottom: clamp(22px, 2.6vw, 40px);
+    width: min(360px, 28vw);
+  }
 }
 
 .hero__title {
@@ -310,10 +334,6 @@
 
   .hero__content {
     gap: 22px;
-  }
-
-  .hero__text {
-    flex-basis: 100%;
   }
 }
 
@@ -1560,8 +1580,10 @@
 }
 
 .pricing__notes li {
-  padding-top: 14px;
-  border-top: 1px solid var(--line-3);
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
 }
 
 .pricing__notes strong {
@@ -2719,4 +2741,17 @@ kronto-lines svg {
   line-height: .74;
   color: var(--navy);
   user-select: none;
+}
+
+/* ═════════ Текст поверх линейной графики ═════════ */
+
+/* Кремовый ореол вокруг букв: линии фона не проходят сквозь заголовки */
+.section:not(.section--dark) .eyebrow,
+.section:not(.section--dark) .h2,
+.strip__text {
+  text-shadow:
+    0 0 2px var(--cream),
+    0 0 6px var(--cream),
+    0 0 12px var(--cream),
+    0 0 20px var(--cream);
 }

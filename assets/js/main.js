@@ -156,19 +156,35 @@ $$("dialog").forEach((dialog) => {
 
 /* ── Горизонт маяка — по линии букв «kronto» ── */
 
+// Слово «kronto» стоит на горизонте: горизонт шейдера (hz, доля высоты
+// от низа) — это линия букв. Маяк ставим туда, где он не спорит с
+// текстом: на широком экране — в просвет между словом и текстом, на
+// узком — справа от слова.
 const hero = $("[data-hero]");
 const baseline = $("[data-hero-baseline]");
 const beacon = hero ? $("kronto-beacon", hero) : null;
+const word = hero ? $(".hero__word", hero) : null;
+const heroText = hero ? $(".hero__text", hero) : null;
+
+const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
 
 function measureHorizon() {
-  if (!hero || !baseline || !beacon) return;
+  if (!hero || !baseline || !beacon || !word || !heroText) return;
   const h = hero.getBoundingClientRect();
+  if (!h.height || !h.width) return;
   const b = baseline.getBoundingClientRect();
-  if (!h.height) return;
-  // На узком экране текст стоит под словом — горизонт оставляем маяку
-  const wide = hero.clientWidth >= 1100 && hero.clientWidth / hero.clientHeight >= 1.25;
-  const hz = wide ? Math.round(((h.bottom - b.bottom) / h.height) * 1000) / 1000 : "";
-  if (String(hz) !== (beacon.getAttribute("hz") || "")) beacon.setAttribute("hz", hz);
+  const w = word.getBoundingClientRect();
+  const t = heroText.getBoundingClientRect();
+  const hz = clamp((h.bottom - b.bottom) / h.height, 0.12, 0.72);
+  const sideBySide = t.left > w.right;
+  const x = sideBySide
+    ? (w.right + t.left) / 2 - h.left
+    : w.right - h.left + h.height * 0.07;
+  const lx = clamp(x / h.width, 0.45, 0.86);
+  const next = { hz: hz.toFixed(3), lx: lx.toFixed(3) };
+  for (const [k, v] of Object.entries(next)) {
+    if (beacon.getAttribute(k) !== v) beacon.setAttribute(k, v);
+  }
 }
 
 if (hero) {

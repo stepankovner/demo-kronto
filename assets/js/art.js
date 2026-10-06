@@ -54,6 +54,7 @@ uniform vec2 uRes;uniform float uPx,uLx,uHz;
 float h(vec2 p){vec3 q=fract(vec3(p.xyx)*.1031);q+=dot(q,q.yzx+33.33);return fract((q.x+q.y)*q.z);}
 float vn(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+1.),f.x),f.y);}
 float fbm(vec2 p){float a=.5,s=0.;for(int i=0;i<5;i++){s+=a*vn(p);p*=2.02;a*=.5;}return s;}
+float aa(float d,float fw){return clamp(.5-d/fw,0.,1.);}
 const vec2 DIR=vec2(-.9627,.2706);
 const vec2 PER=vec2(-.2706,-.9627);
 float shape(vec2 p,vec2 L){
@@ -108,20 +109,28 @@ void main(){
     col+=warm*I*smoothstep(.42,1.,rA)*.5*k+cream*I*smoothstep(.42,1.,rB)*.85*k+teal*I*smoothstep(.42,1.,rC)*.5*k;
     col+=cream*.025*smoothstep(.85,1.,rB)*exp(-dp*5.);
   }
-  vec2 rq=(p-vec2(L.x+.012,hz-.003))/vec2(.12,.03);
-  float rock=step(length(rq),1.)*step(hz-.014,p.y);
+  // Силуэт со сглаженными краями: d — расстояние до края (снаружи > 0),
+  // покрытие плавно меняется в пределах одного пикселя.
+  float fw=1./uRes.y;
+  vec2 rs=vec2(.12,.03);
+  vec2 rq=(p-vec2(L.x+.012,hz-.003))/rs;
+  float rl=max(length(rq),1e-4);
+  float rd=(rl-1.)/length((rq/rl)/rs);
+  float rock=aa(max(rd,(hz-.014)-p.y),fw);
   float base=hz+.01,top=L.y-.024;
   float ty=clamp((p.y-base)/(top-base),0.,1.);
   float hw=mix(.024,.0135,ty);
-  float tower=step(abs(p.x-L.x),hw)*step(base-.01,p.y)*step(p.y,top);
-  float gal=step(abs(p.x-L.x),.021)*step(top,p.y)*step(p.y,top+.005);
-  float lamp=step(abs(p.x-L.x),.0115)*step(top+.005,p.y)*step(p.y,L.y+.013);
+  float dx=abs(p.x-L.x);
+  float tower=aa(max(dx-hw,max((base-.01)-p.y,p.y-top)),fw);
+  float gal=aa(max(dx-.021,max(top-p.y,p.y-(top+.005))),fw);
+  float lamp=aa(max(dx-.0115,max((top+.005)-p.y,p.y-(L.y+.013))),fw);
   float ry=(p.y-(L.y+.013))/.022;
-  float roof=step(0.,ry)*step(ry,1.)*step(abs(p.x-L.x),.015*(1.-ry));
+  float roof=aa(max(max(-ry*.022,(ry-1.)*.022),(dx-.015*(1.-ry))*.83),fw);
   vec3 sil=C(7,9,20);
   float rim=smoothstep(hw*.4,hw,L.x-p.x)*.05;
   col=mix(col,sil+C(120,140,190)*rim,max(max(rock,tower),max(gal,roof)));
-  float bars=step(.28,fract((p.x-L.x)*150.));
+  float bx=fract((p.x-L.x)*150.),bw=fw*150.;
+  float bars=smoothstep(.28-bw,.28+bw,bx)*smoothstep(1.,1.-bw,bx);
   col=mix(col,mix(sil,C(255,246,226),bars),lamp);
   float dl=length((p-L)*vec2(1.,1.15));
   col+=C(255,244,222)*(exp(-dl*38.)*1.3+exp(-dl*10.)*.28+exp(-dl*3.)*.07);
@@ -263,8 +272,14 @@ class Painted extends HTMLElement {
   onResize() {
     const w = this.clientWidth;
     const h = this.clientHeight;
-    if (!this.drawnW || Math.abs(w - this.drawnW) > this.resizeStep || Math.abs(h - this.drawnH) > this.resizeStep) {
+    if (!this.drawnW) {
       this.request();
+      return;
+    }
+    if (Math.abs(w - this.drawnW) > this.resizeStep || Math.abs(h - this.drawnH) > this.resizeStep) {
+      // Пока окно тянут, старый кадр просто растягивается; рисуем, когда размер устоялся
+      clearTimeout(this.resizeTimer);
+      this.resizeTimer = setTimeout(() => this.request(), 150);
     }
   }
 
@@ -334,7 +349,10 @@ class KrontoBeacon extends Painted {
     const ch = this.clientHeight;
     if (!cw || !ch) return;
     this.needsDraw = false;
-    const scale = Math.min(window.devicePixelRatio || 1, 1.5, 2200 / cw);
+    // Полное разрешение экрана (Retina — 2×), но не больше ~4,5 млн
+    // пикселей: кадр рисуется один раз, а не каждый кадр анимации.
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const scale = Math.min(dpr, Math.sqrt(4.5e6 / (cw * ch)));
     const w = Math.round(cw * scale);
     const h = Math.round(ch * scale);
     const narrow = cw / ch < 1.25 || cw < 1100;
@@ -342,7 +360,7 @@ class KrontoBeacon extends Painted {
     const ok = paint(this.cv, w, h, "beacon", BEACON_FS, ["uRes", "uPx", "uLx", "uHz"], (gl, u) => {
       gl.uniform2f(u.uRes, w, h);
       gl.uniform1f(u.uPx, scale);
-      gl.uniform1f(u.uLx, narrow ? 0.74 : this.num("lx", 0.6));
+      gl.uniform1f(u.uLx, this.num("lx", narrow ? 0.74 : 0.6));
       gl.uniform1f(u.uHz, hz > 0.1 && hz < 0.75 ? hz : (narrow ? 0.48 : 0.4));
     });
     if (ok) {
