@@ -2,787 +2,710 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>kronto&nbsp;— ИИ-ассистент по документам компании</title>
-  <meta name="description" content="kronto отвечает сотрудникам на вопросы по внутренним документам компании и показывает источник. Если ответа в документах нет&nbsp;— прямо говорит об этом. Российские модели, данные в России.">
-  <meta name="theme-color" content="#f5f1e8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://stage.krontoai.ru; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <title>kronto&nbsp;— ИИ-ассистент по&nbsp;документам компании</title>
+  <meta name="description" content="kronto отвечает сотрудникам по регламентам и инструкциям компании со ссылкой на источник. Если ответа в документах нет — прямо говорит об этом. Данные хранятся в России. От 990 ₽ за место в месяц, внедрение бесплатно.">
+  <link rel="canonical" href="https://krontoai.ru/">
+  <meta name="theme-color" content="#f0e7d5">
+  <meta name="color-scheme" content="light">
 
-  <!-- Open Graph / Telegram. Домен: krontoai.ru -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="kronto">
-  <meta property="og:title" content="kronto&nbsp;— ИИ-ассистент по документам компании">
-  <meta property="og:description" content="Сотрудник спрашивает&nbsp;— kronto отвечает по документам компании со ссылкой на источник. Попробуйте демо.">
+  <meta property="og:title" content="kronto — ИИ-ассистент по документам компании">
+  <meta property="og:description" content="Спросите — и получите ответ по документам компании со ссылкой на источник. Данные хранятся в России.">
   <meta property="og:url" content="https://krontoai.ru/">
-  <meta property="og:image" content="https://krontoai.ru/assets/img/og-image.png">
+  <meta property="og:image" content="https://krontoai.ru/assets/img/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="kronto&nbsp;— ответы по документам компании со ссылкой на источник">
+  <meta property="og:image:alt" content="kronto — ответы по документам компании со ссылкой на источник">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="kronto&nbsp;— ИИ-ассистент по документам компании">
-  <meta name="twitter:description" content="Сотрудник спрашивает&nbsp;— kronto отвечает по документам компании со ссылкой на источник.">
-  <meta name="twitter:image" content="https://krontoai.ru/assets/img/og-image.png">
+  <meta name="twitter:title" content="kronto — ИИ-ассистент по документам компании">
+  <meta name="twitter:description" content="Спросите — и получите ответ по документам компании со ссылкой на источник.">
+  <meta name="twitter:image" content="https://krontoai.ru/assets/img/og-image.jpg">
 
-  <link rel="icon" href="assets/img/favicon.svg?v=1" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=1">
+  <link rel="icon" href="assets/img/favicon.svg?v=2" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=2">
 
-  <link rel="preload" href="assets/fonts/onest-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/tokens.css?v=1">
-  <link rel="stylesheet" href="assets/css/base.css?v=1">
-  <link rel="stylesheet" href="assets/css/sections.css?v=3">
+  <link rel="preload" href="assets/fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/onest-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/tokens.css?v=4">
+  <link rel="stylesheet" href="assets/css/base.css?v=4">
+  <link rel="stylesheet" href="assets/css/sections.css?v=4">
 
-  <script type="module" src="assets/js/main.js?v=1"></script>
-  <script type="module" src="assets/js/demo.js?v=2"></script>
-  <script type="module" src="assets/js/calculator.js?v=2"></script>
-  <script type="module" src="assets/js/form.js?v=1"></script>
+  <script type="module" src="assets/js/art.js?v=4"></script>
+  <script type="module" src="assets/js/main.js?v=4"></script>
+  <script type="module" src="assets/js/demo.js?v=4"></script>
+  <script type="module" src="assets/js/form.js?v=4"></script>
 
-  <!--
-    TODO: Яндекс Метрика. Не подключена.
-    Чтобы подключить: вставьте сюда код счётчика, вынесите его в отдельный файл assets/js/metrika.js
-    (inline-скрипты запрещены политикой CSP) и добавьте https://mc.yandex.ru в script-src, img-src
-    и connect-src в deploy/nginx.conf.
-    <script src="assets/js/metrika.js" defer></script>
-  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "kronto",
+    "url": "https://krontoai.ru/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "ИИ-ассистент, который отвечает сотрудникам по документам компании со ссылкой на источник.",
+    "offers": [
+      { "@type": "Offer", "name": "Базовый", "price": "990", "priceCurrency": "RUB" },
+      { "@type": "Offer", "name": "Расширенный", "price": "1290", "priceCurrency": "RUB" }
+    ]
+  }
+  </script>
 </head>
 <body id="top">
-  <a class="skip-link" href="#main">Перейти к содержанию</a>
+  <a class="skip-link" href="#main">Перейти к&nbsp;содержанию</a>
 
-  <!-- Иконки: Lucide (ISC), перерисованы и встроены -->
   <svg class="visually-hidden" aria-hidden="true" focusable="false">
     <defs>
-      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
-      <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></symbol>
-      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
-      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></symbol>
-      <symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
-      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
-      <symbol id="i-file" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5Z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M8 13h8"/><path d="M8 17h5"/></symbol>
-      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
-      <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/><path d="m9 13 2 2 4-4"/></symbol>
-      <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></symbol>
-      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
-      <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.8 2.2a2 2 0 0 0-1.6 0L2.6 6.1a1 1 0 0 0 0 1.8l8.6 3.9a2 2 0 0 0 1.6 0l8.6-3.9a1 1 0 0 0 0-1.8Z"/><path d="m2 12 9.2 4.2a2 2 0 0 0 1.6 0L22 12"/><path d="m2 17 9.2 4.2a2 2 0 0 0 1.6 0L22 17"/></symbol>
-      <symbol id="i-chip" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></symbol>
-      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
-      <symbol id="i-send" viewBox="0 0 24 24"><path d="M14.5 21.7a.5.5 0 0 0 .9-.1l6.5-19a.5.5 0 0 0-.6-.6l-19 6.5a.5.5 0 0 0-.1.9l7.9 3.2a2 2 0 0 1 1.1 1.1Z"/><path d="m21.9 2.1-10.9 10.9"/></symbol>
-      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
-      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></symbol>
+      <symbol id="i-back" viewBox="0 0 16 16"><path d="M13 8H3M7 4 3 8l4 4"/></symbol>
+      <symbol id="i-send" viewBox="0 0 16 16"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></symbol>
+      <symbol id="i-reset" viewBox="0 0 16 16"><path d="M2.5 8a5.5 5.5 0 1 0 1.7-4M2.5 2.5V5H5"/></symbol>
+      <symbol id="i-check" viewBox="0 0 16 16"><path d="M3 8.5 6.5 12 13 4.5"/></symbol>
+      <symbol id="i-x" viewBox="0 0 16 16"><path d="M4 4l8 8M12 4l-8 8"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 16 16"><path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 16 16"><path d="M2 3.5h12v9H2zM2.5 4l5.5 4.5L13.5 4"/></symbol>
+      <symbol id="i-telegram" viewBox="0 0 16 16"><path d="M14.2 2.3 1.8 7.1l4.3 1.7 1.6 4.9 2.3-2.7 3.4 2.5zM6.1 8.8l6.4-4.7"/></symbol>
+      <symbol id="i-upload" viewBox="0 0 16 16"><path d="M8 10.5V2.5M5 5.5l3-3 3 3M2.5 10v3.5h11V10"/></symbol>
+      <symbol id="i-grid" viewBox="0 0 16 16"><path d="M2.5 2.5h4.5v4.5h-4.5zM9 2.5h4.5v4.5H9zM2.5 9h4.5v4.5h-4.5zM9 9h4.5v4.5H9z"/></symbol>
+      <symbol id="i-message" viewBox="0 0 16 16"><path d="M2.5 3h11v7.5h-6L4.5 13v-2.5h-2z"/></symbol>
+      <symbol id="i-server" viewBox="0 0 16 16"><path d="M2.5 3h11v4h-11zM2.5 9h11v4h-11zM5 5h.01M5 11h.01"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 16 16"><path d="M8 1.5 13.5 4v4c0 3.2-2.3 5.6-5.5 6.5C4.8 13.6 2.5 11.2 2.5 8V4z"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 16 16"><path d="M5 7V5a3 3 0 0 1 6 0v2M3.5 7h9v6.5h-9zM8 9.5v1.5"/></symbol>
+      <symbol id="i-eye-off" viewBox="0 0 16 16"><path d="M2 8s2.2-4.5 6-4.5S14 8 14 8s-2.2 4.5-6 4.5S2 8 2 8zM8 9.7a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4zM2.5 13.5l11-11"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 16 16"><path d="M8 1.8 14.5 13.5h-13zM8 6v3.5M8 11.6h.01"/></symbol>
     </defs>
   </svg>
 
-  <!-- ═════════ 5.1 Шапка ═════════ -->
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a class="site-header__logo" href="#top" aria-label="kronto&nbsp;— наверх"><svg class="logo" viewBox="40 -730 2880 750" role="img" aria-label="kronto"><path fill="currentColor" d="M60.599853515625 0.0V-707.3200073242188H175.04052734375V-313.12030029296875H254.56024169921875L397.19989013671875 -527.0H525.8406372070312L354.000732421875 -276.0L540.2006225585938 0.0H406.91986083984375L262.3201904296875 -212.23968505859375H175.04052734375V0.0Z M571.599853515625 0.0V-527.0H676.9603881835938L683.5204467773438 -455.240234375Q703.5204467773438 -485.6002197265625 729.2204284667969 -502.68017578125Q754.92041015625 -519.7601318359375 784.7003479003906 -527.1800842285156Q814.4802856445312 -534.6000366210938 846.7201538085938 -534.6000366210938Q856.9202270507812 -534.6000366210938 865.8202819824219 -534.4400329589844Q874.7203369140625 -534.280029296875 880.7603149414062 -533.9600219726562V-424.83935546875H848.80029296875Q794.8004760742188 -424.83935546875 758.2205200195312 -403.77947998046875Q721.6405639648438 -382.7196044921875 703.8405456542969 -343.979736328125Q686.04052734375 -305.2398681640625 686.04052734375 -251.55987548828125V0.0Z M1164.2400512695312 6.6400146484375Q1082.840087890625 6.6400146484375 1024.7600402832031 -26.739959716796875Q966.6799926757812 -60.11993408203125 936.1399230957031 -120.95993041992188Q905.599853515625 -181.7999267578125 905.599853515625 -262.67999267578125Q905.599853515625 -344.88006591796875 936.6399230957031 -405.7000732421875Q967.6799926757812 -466.52008056640625 1025.6000366210938 -500.56005859375Q1083.5200805664062 -534.6000366210938 1164.6400146484375 -534.6000366210938Q1245.719970703125 -534.6000366210938 1303.1400146484375 -500.24005126953125Q1360.56005859375 -465.88006591796875 1390.9401245117188 -404.9000549316406Q1421.3201904296875 -343.9200439453125 1421.3201904296875 -261.719970703125Q1421.3201904296875 -181.159912109375 1391.0801391601562 -120.47991943359375Q1360.840087890625 -59.7999267578125 1303.5800476074219 -26.5799560546875Q1246.3200073242188 6.6400146484375 1164.2400512695312 6.6400146484375ZM1163.280029296875 -96.84063720703125Q1214.8798828125 -96.84063720703125 1246.7397766113281 -119.64056396484375Q1278.5996704101562 -142.44049072265625 1293.3796081542969 -180.20034790039062Q1308.1595458984375 -217.960205078125 1308.1595458984375 -262.3599853515625Q1308.1595458984375 -306.759765625 1293.3796081542969 -344.9996337890625Q1278.5996704101562 -383.239501953125 1246.8997802734375 -406.679443359375Q1215.1998901367188 -430.119384765625 1163.280029296875 -430.119384765625Q1112.3601684570312 -430.119384765625 1080.3402709960938 -406.679443359375Q1048.3203735351562 -383.239501953125 1033.5404357910156 -345.1596374511719Q1018.760498046875 -307.07977294921875 1018.760498046875 -262.3599853515625Q1018.760498046875 -217.64019775390625 1033.700439453125 -179.88034057617188Q1048.640380859375 -142.1204833984375 1080.5002746582031 -119.48056030273438Q1112.3601684570312 -96.84063720703125 1163.280029296875 -96.84063720703125Z M1492.599853515625 0.0V-527.0H1600.5204467773438L1606.4404907226562 -457.240234375Q1626.6805419921875 -485.28021240234375 1654.8405456542969 -502.2001647949219Q1683.0005493164062 -519.1201171875 1714.4205017089844 -526.8600769042969Q1745.8404541015625 -534.6000366210938 1773.6803588867188 -534.6000366210938Q1849.7203369140625 -534.6000366210938 1892.9003295898438 -501.96002197265625Q1936.080322265625 -469.32000732421875 1954.4203186035156 -414.3399963378906Q1972.7603149414062 -359.3599853515625 1972.7603149414062 -291.0V0.0H1858.3196411132812V-270.56005859375Q1858.3196411132812 -300.83990478515625 1854.1396484375 -329.5597839355469Q1849.9596557617188 -358.2796630859375 1838.0596923828125 -381.4395751953125Q1826.1597290039062 -404.5994873046875 1804.3598022460938 -418.179443359375Q1782.5598754882812 -431.7593994140625 1746.3200073242188 -431.7593994140625Q1701.0401611328125 -431.7593994140625 1669.6602783203125 -407.55950927734375Q1638.2803955078125 -383.359619140625 1622.6604614257812 -342.5198059082031Q1607.04052734375 -301.67999267578125 1607.04052734375 -250.92022705078125V0.0Z M2287.7201538085938 0.0Q2224.5200805664062 0.0 2183.8599853515625 -17.03997802734375Q2143.1998901367188 -34.0799560546875 2123.4998168945312 -72.23995971679688Q2103.7997436523438 -110.39996337890625 2103.7997436523438 -173.2000732421875V-425.43939208984375H2021.9598388671875V-527.0H2103.7997436523438V-675.6798095703125H2218.2404174804688V-527.0H2345.1600952148438V-425.43939208984375H2218.2404174804688V-187.960205078125Q2218.2404174804688 -145.16046142578125 2233.580322265625 -123.1805419921875Q2248.9202270507812 -101.20062255859375 2299.6400146484375 -101.20062255859375H2341.2000732421875V0.0Z M2637.2400512695312 6.6400146484375Q2555.840087890625 6.6400146484375 2497.760040283203 -26.739959716796875Q2439.6799926757812 -60.11993408203125 2409.139923095703 -120.95993041992188Q2378.599853515625 -181.7999267578125 2378.599853515625 -262.67999267578125Q2378.599853515625 -344.88006591796875 2409.639923095703 -405.7000732421875Q2440.6799926757812 -466.52008056640625 2498.6000366210938 -500.56005859375Q2556.5200805664062 -534.6000366210938 2637.6400146484375 -534.6000366210938Q2718.719970703125 -534.6000366210938 2776.1400146484375 -500.24005126953125Q2833.56005859375 -465.88006591796875 2863.9401245117188 -404.9000549316406Q2894.3201904296875 -343.9200439453125 2894.3201904296875 -261.719970703125Q2894.3201904296875 -181.159912109375 2864.0801391601562 -120.47991943359375Q2833.840087890625 -59.7999267578125 2776.580047607422 -26.5799560546875Q2719.3200073242188 6.6400146484375 2637.2400512695312 6.6400146484375ZM2636.280029296875 -96.84063720703125Q2687.8798828125 -96.84063720703125 2719.739776611328 -119.64056396484375Q2751.5996704101562 -142.44049072265625 2766.379608154297 -180.20034790039062Q2781.1595458984375 -217.960205078125 2781.1595458984375 -262.3599853515625Q2781.1595458984375 -306.759765625 2766.379608154297 -344.9996337890625Q2751.5996704101562 -383.239501953125 2719.8997802734375 -406.679443359375Q2688.1998901367188 -430.119384765625 2636.280029296875 -430.119384765625Q2585.3601684570312 -430.119384765625 2553.3402709960938 -406.679443359375Q2521.3203735351562 -383.239501953125 2506.5404357910156 -345.1596374511719Q2491.760498046875 -307.07977294921875 2491.760498046875 -262.3599853515625Q2491.760498046875 -217.64019775390625 2506.700439453125 -179.88034057617188Q2521.640380859375 -142.1204833984375 2553.500274658203 -119.48056030273438Q2585.3601684570312 -96.84063720703125 2636.280029296875 -96.84063720703125Z"/><circle cx="2636.5" cy="-264" r="78" fill="var(--accent)"/></svg></a>
+  <!-- ═════════ Шапка ═════════ -->
+  <header class="site-header" data-header>
+    <div class="site-header__bar">
+      <a class="logo" href="#top" aria-label="kronto — наверх">
+        <span class="logo__mark" aria-hidden="true"><span></span></span>
+        <span class="logo__word">kronto</span>
+      </a>
 
-      <nav class="nav" id="site-nav" aria-label="Разделы страницы">
+      <nav class="nav" aria-label="Разделы страницы">
         <ul class="nav__list">
-          <li><a href="#how">Как работает</a></li>
-          <li><a href="#demo">Демо</a></li>
-          <li><a href="#security">Безопасность</a></li>
-          <li class="nav__pricing"><a href="#pricing">Тарифы</a></li>
-          <li><a href="#status">Статус</a></li>
+          <li><a href="#how" data-nav="how">Как работает</a></li>
+          <li><a href="#demo" data-nav="demo">Демо</a></li>
+          <li><a href="#security" data-nav="security">Безопасность</a></li>
+          <li><a href="#pricing" data-nav="pricing">Тарифы</a></li>
+          <li><a href="#faq" data-nav="faq">Вопросы</a></li>
         </ul>
-        <a class="btn btn--dark nav__cta-mobile" href="#pilot">Обсудить пилот</a>
       </nav>
 
-      <a class="btn btn--dark btn--sm site-header__cta" href="#pilot">Обсудить пилот</a>
+      <div class="site-header__actions">
+        <a class="btn btn--dark btn--sm site-header__cta" href="#contact"><span>Записаться<span class="site-header__cta-tail"> на&nbsp;созвон</span></span></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Меню" data-menu-btn>
+          <svg class="icon menu-btn__open" width="20" height="20" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="icon menu-btn__close" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
+      </div>
+    </div>
 
-      <button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
-        <svg class="burger__open" width="24" height="24" aria-hidden="true"><use href="#i-menu"/></svg>
-        <svg class="burger__close" width="24" height="24" aria-hidden="true"><use href="#i-x"/></svg>
-      </button>
+    <div class="mobile-menu" id="mobile-menu" hidden data-menu>
+      <ul class="mobile-menu__list">
+        <li><a href="#how">Как работает</a></li>
+        <li><a href="#demo">Демо</a></li>
+        <li><a href="#security">Безопасность</a></li>
+        <li><a href="#pricing">Тарифы</a></li>
+        <li><a href="#faq">Вопросы и&nbsp;ответы</a></li>
+      </ul>
+      <div class="mobile-menu__contacts">
+        <a href="mailto:info@krontoai.ru">info@krontoai.ru</a>
+        <a href="https://t.me/stukalich" rel="noopener">Telegram @stukalich</a>
+      </div>
     </div>
   </header>
 
   <main id="main">
 
-    <!-- ═════════ 5.2 Первый экран ═════════ -->
+    <!-- ═════════ Первый экран ═════════ -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__panel">
-        <div class="hero__arcs hero__arcs--left" aria-hidden="true"><svg viewBox="0 0 520 640" preserveAspectRatio="xMidYMax slice" fill="none"><defs><linearGradient id="gl" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#f3a6de"/><stop offset="0.45" stop-color="#9b8cf7"/><stop offset="1" stop-color="#7cc4f5"/></linearGradient></defs><g stroke="url(#gl)"><circle cx="-180" cy="760" r="380" stroke-width="0.75" opacity="0.55"/><circle cx="-180" cy="760" r="389" stroke-width="1.25" opacity="0.8"/><circle cx="-180" cy="760" r="398" stroke-width="2.5" opacity="0.95"/><circle cx="-180" cy="760" r="410" stroke-width="1" opacity="0.6"/><circle cx="-180" cy="760" r="419" stroke-width="0.75" opacity="0.5"/><circle cx="-180" cy="760" r="428" stroke-width="4" opacity="0.9"/><circle cx="-180" cy="760" r="440" stroke-width="1.25" opacity="0.7"/><circle cx="-180" cy="760" r="449" stroke-width="0.75" opacity="0.55"/><circle cx="-180" cy="760" r="458" stroke-width="1.25" opacity="0.8"/><circle cx="-180" cy="760" r="467" stroke-width="2.5" opacity="0.95"/><circle cx="-180" cy="760" r="479" stroke-width="1" opacity="0.6"/><circle cx="-180" cy="760" r="488" stroke-width="0.75" opacity="0.5"/><circle cx="-180" cy="760" r="497" stroke-width="4" opacity="0.9"/><circle cx="-180" cy="760" r="509" stroke-width="1.25" opacity="0.7"/><circle cx="-180" cy="760" r="518" stroke-width="0.75" opacity="0.55"/><circle cx="-180" cy="760" r="527" stroke-width="1.25" opacity="0.8"/><circle cx="-180" cy="760" r="536" stroke-width="2.5" opacity="0.95"/><circle cx="-180" cy="760" r="548" stroke-width="1" opacity="0.6"/><circle cx="-180" cy="760" r="557" stroke-width="0.75" opacity="0.5"/><circle cx="-180" cy="760" r="566" stroke-width="4" opacity="0.9"/><circle cx="-180" cy="760" r="578" stroke-width="1.25" opacity="0.7"/><circle cx="-180" cy="760" r="587" stroke-width="0.75" opacity="0.55"/></g></svg></div>
-        <div class="hero__arcs hero__arcs--right" aria-hidden="true"><svg viewBox="0 0 520 640" preserveAspectRatio="xMidYMax slice" fill="none"><defs><linearGradient id="gr" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#f7b69a"/><stop offset="0.5" stop-color="#ee7fa8"/><stop offset="1" stop-color="#b98cf2"/></linearGradient></defs><g stroke="url(#gr)"><circle cx="700" cy="800" r="380" stroke-width="0.75" opacity="0.55"/><circle cx="700" cy="800" r="389" stroke-width="1.25" opacity="0.8"/><circle cx="700" cy="800" r="398" stroke-width="2.5" opacity="0.95"/><circle cx="700" cy="800" r="410" stroke-width="1" opacity="0.6"/><circle cx="700" cy="800" r="419" stroke-width="0.75" opacity="0.5"/><circle cx="700" cy="800" r="428" stroke-width="4" opacity="0.9"/><circle cx="700" cy="800" r="440" stroke-width="1.25" opacity="0.7"/><circle cx="700" cy="800" r="449" stroke-width="0.75" opacity="0.55"/><circle cx="700" cy="800" r="458" stroke-width="1.25" opacity="0.8"/><circle cx="700" cy="800" r="467" stroke-width="2.5" opacity="0.95"/><circle cx="700" cy="800" r="479" stroke-width="1" opacity="0.6"/><circle cx="700" cy="800" r="488" stroke-width="0.75" opacity="0.5"/><circle cx="700" cy="800" r="497" stroke-width="4" opacity="0.9"/><circle cx="700" cy="800" r="509" stroke-width="1.25" opacity="0.7"/><circle cx="700" cy="800" r="518" stroke-width="0.75" opacity="0.55"/><circle cx="700" cy="800" r="527" stroke-width="1.25" opacity="0.8"/><circle cx="700" cy="800" r="536" stroke-width="2.5" opacity="0.95"/><circle cx="700" cy="800" r="548" stroke-width="1" opacity="0.6"/><circle cx="700" cy="800" r="557" stroke-width="0.75" opacity="0.5"/><circle cx="700" cy="800" r="566" stroke-width="4" opacity="0.9"/><circle cx="700" cy="800" r="578" stroke-width="1.25" opacity="0.7"/><circle cx="700" cy="800" r="587" stroke-width="0.75" opacity="0.55"/></g></svg></div>
-
+      <div class="hero__frame on-dark" data-hero>
+        <kronto-beacon class="hero__art" lx="0.6"></kronto-beacon>
+        <div class="hero__shade" aria-hidden="true"></div>
         <div class="hero__content">
-          <p class="mono hero__label">ии-ассистент по документам и сервисам компании</p>
-          <h1 id="hero-title">Спросите&nbsp;— и&nbsp;получите ответ по&nbsp;документам компании со&nbsp;ссылкой на&nbsp;источник</h1>
-          <p class="lead hero__lead">kronto&nbsp;— ассистент для всех сотрудников компании. В&nbsp;отличие от&nbsp;публичного ChatGPT, он отвечает по&nbsp;вашим регламентам и&nbsp;инструкциям, а&nbsp;данные хранятся в&nbsp;России.</p>
-          <div class="hero__actions">
-            <a class="btn btn--dark" href="#demo">Попробовать демо</a>
-            <a class="btn btn--link hero__pilot" href="#pilot"><span class="dot"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><use href="#i-arrow"/></svg></span>Обсудить пилот</a>
+          <div class="hero__word" aria-hidden="true">kronto<span class="hero__baseline" data-hero-baseline></span></div>
+          <div class="hero__text">
+            <h1 class="hero__title" id="hero-title">Спросите&nbsp;— и&nbsp;получите ответ по&nbsp;документам компании со&nbsp;ссылкой на&nbsp;источник</h1>
+            <p class="hero__lead">kronto&nbsp;— ассистент для всех сотрудников компании. В&nbsp;отличие от&nbsp;публичного чата, он&nbsp;отвечает по&nbsp;вашим регламентам и&nbsp;инструкциям, а&nbsp;данные хранятся в&nbsp;России.</p>
+            <a class="hero__cta" href="#contact">Записаться на&nbsp;созвон<span class="hero__cta-icon" aria-hidden="true"><svg class="icon" width="14" height="14"><use href="#i-arrow"/></svg></span></a>
           </div>
         </div>
-
-        <figure class="hero__window-wrap">
-          <div class="glass">
-            <div class="window hero-window" data-hero-window>
-              <div class="window__bar">
-                <span class="window__title"><span class="window__mark" aria-hidden="true"></span>kronto</span>
-                <span class="mono muted">ООО «Меридиан Строй»</span>
-              </div>
-              <div class="hero-window__body">
-                <p class="msg msg--user" data-step="q"><span class="visually-hidden">Вопрос сотрудника: </span>До&nbsp;какой суммы можно купить материалы без тендера?</p>
-                <div class="msg msg--bot" data-step="a">
-                  <p class="msg--status mono" data-step="search" hidden>ищу в&nbsp;документах</p>
-                  <span class="visually-hidden">Ответ kronto: </span>
-                  <p data-stream>До&nbsp;<strong>300&nbsp;000&nbsp;₽ с&nbsp;НДС</strong> по&nbsp;одной закупке<span class="src" aria-hidden="true">1</span><span class="visually-hidden"> (источник 1)</span>. Если сумма больше, отдел снабжения запрашивает котировки минимум у&nbsp;трёх поставщиков.</p>
-                </div>
-                <div class="source-card" data-step="src">
-                  <span class="src" aria-hidden="true">1</span>
-                  <span class="source-card__text">
-                    <span class="source-card__title">Положение о&nbsp;закупках</span>
-                    <span class="mono muted">раздел 3 · п.&nbsp;3.4</span>
-                    <q class="source-card__quote">Закупка на&nbsp;сумму до&nbsp;300&nbsp;000&nbsp;₽ с&nbsp;НДС проводится без конкурентных процедур…</q>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <figcaption class="mono hero__caption">пример на&nbsp;вымышленных документах</figcaption>
-        </figure>
       </div>
     </section>
 
-    <!-- ═════════ 5.3 Проблема ═════════ -->
+    <div class="band band--hero" aria-hidden="true">
+      <kronto-waves seed="2" palette="night" tilt="-0.3"></kronto-waves>
+    </div>
+
+    <!-- ═════════ Подключения ═════════ -->
+    <section class="strip" id="connectors" aria-label="Что можно подключить">
+      <kronto-lines class="bg-art" variant="waves" color="#2F6B66" seed="9" count="10" opacity="0.5"></kronto-lines>
+      <div class="wrap strip__grid">
+        <div class="strip__item">
+          <span class="tag">Подключите файлы</span>
+          <p class="strip__text">Word, Excel, PowerPoint, PDF <span class="strip__muted">и&nbsp;текстовые форматы</span></p>
+        </div>
+        <div class="strip__item strip__item--rule">
+          <span class="tag">Коннекторы</span>
+          <p class="strip__text">Битрикс24, Яндекс Диск и&nbsp;Вики, Confluence <span class="strip__muted">и&nbsp;другие системы по&nbsp;запросу</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ 01 Проблема ═════════ -->
     <section class="section" id="problem" aria-labelledby="problem-title">
-      <div class="container">
-        <header class="section-head">
-          <p class="mono section-label">проблема</p>
-          <h2 id="problem-title">Ответ где-то есть. Найти его&nbsp;— отдельная работа</h2>
-          <p class="lead">Регламенты, стандарты и&nbsp;инструкции лежат на&nbsp;дисках, в&nbsp;вики и&nbsp;на&nbsp;портале. Сотрудник тратит время на&nbsp;поиск, а&nbsp;когда не&nbsp;находит&nbsp;— идёт к&nbsp;коллегам.</p>
-        </header>
-
-        <dl class="facts">
-          <div class="fact">
-            <dt class="fact__num num">49%</dt>
-            <dd>респондентов в&nbsp;исследовании Nintex назвали поиск документов проблемным процессом</dd>
+      <kronto-lines class="bg-art" variant="arcs-r" color="#2F6B66" seed="3" count="28" fade="to left"></kronto-lines>
+      <kronto-lines class="bg-art" variant="arcs-l" color="#7480aa" seed="8" count="18" opacity="0.8" fade="to right"></kronto-lines>
+      <div class="wrap section__stack">
+        <div class="head">
+          <div class="head__title">
+            <span class="eyebrow">01 / Проблема</span>
+            <h2 class="h2" id="problem-title">Ответ где-то есть. Найти его&nbsp;— отдельная работа</h2>
           </div>
-        </dl>
-
-        <div class="causes">
-          <h3 class="causes__title">Почему не&nbsp;находят</h3>
-          <div class="cause cause--solved">
-            <p class="cause__name">Информация есть, но&nbsp;в&nbsp;ней не&nbsp;разобраться</p>
-            <p class="muted">Документы без структуры, одно и&nbsp;то&nbsp;же лежит в&nbsp;трёх местах. Эту причину решает kronto: находит нужный фрагмент и&nbsp;отвечает по&nbsp;нему.</p>
-          </div>
-          <div class="cause">
-            <p class="cause__name">Информации нет вообще</p>
-            <p class="muted">Поиском это не&nbsp;исправить. kronto прямо скажет, что ответа в&nbsp;документах нет, и&nbsp;не&nbsp;станет его придумывать.</p>
-          </div>
+          <p class="lead lead--mark"><span>Регламенты, стандарты и&nbsp;инструкции лежат на&nbsp;дисках, в&nbsp;вики и&nbsp;на&nbsp;портале. Сотрудник тратит время на&nbsp;поиск, а&nbsp;когда не&nbsp;находит&nbsp;— идёт к&nbsp;коллегам.</span></p>
         </div>
-
-        <figure class="survey">
-          <blockquote>
-            <p>За&nbsp;ответом сначала идут во&nbsp;внутренние документы, вики и&nbsp;материалы онбординга, к&nbsp;коллегам&nbsp;— потом. Не&nbsp;находят, потому что у&nbsp;материалов нет структуры или информации нет вообще.</p>
-          </blockquote>
-          <figcaption class="mono muted">из нашего опроса</figcaption>
-        </figure>
+        <div class="cards cards--2">
+          <article class="card card--tall">
+            <span class="card__badge" aria-hidden="true">А</span>
+            <div>
+              <h3 class="card__title">Информация есть, но&nbsp;в&nbsp;ней не&nbsp;разобраться</h3>
+              <p class="card__text">Документы без структуры, одно и&nbsp;то&nbsp;же&nbsp;лежит в&nbsp;трёх местах. Это kronto решает: находит нужный фрагмент и&nbsp;отвечает по&nbsp;нему.</p>
+            </div>
+          </article>
+          <article class="card card--tall">
+            <span class="card__badge card__badge--teal" aria-hidden="true">Б</span>
+            <div>
+              <h3 class="card__title">Информации нет вообще</h3>
+              <p class="card__text">Поиском это не&nbsp;исправить. kronto прямо скажет, что ответа в&nbsp;документах нет, а&nbsp;администратор увидит такие вопросы в&nbsp;отчёте о&nbsp;пробелах.</p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- ═════════ 5.4 Как это работает ═════════ -->
-    <section class="section" id="how" aria-labelledby="how-title">
-      <div class="container">
-        <header class="section-head">
-          <p class="mono section-label">как это работает</p>
-          <h2 id="how-title">Три шага от&nbsp;документов до&nbsp;ответа</h2>
-          <p class="lead">Модель не&nbsp;отвечает «из&nbsp;головы». Она получает только те&nbsp;фрагменты документов, которые относятся к&nbsp;вопросу, и&nbsp;строит ответ по&nbsp;ним. Этот подход называется RAG&nbsp;— генерация с&nbsp;опорой на&nbsp;найденные документы.</p>
-        </header>
-
-        <ol class="flow">
-          <li class="flow__step">
-            <div class="flow__art" aria-hidden="true">
-              <svg viewBox="0 0 160 110" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="28" y="22" width="56" height="72" rx="6" fill="#fff" stroke="#cfcac0"/>
-                <rect x="40" y="14" width="56" height="72" rx="6" fill="#fff" stroke="#cfcac0"/>
-                <rect x="52" y="6" width="56" height="72" rx="6" fill="#fff" stroke="#16161a" stroke-width="1.5"/>
-                <path d="M62 22h28M62 32h36M62 42h22M62 52h32" stroke="#cfcac0" stroke-width="3"/>
-                <circle cx="120" cy="80" r="20" fill="#f5f1e8" stroke="#16161a" stroke-width="1.5"/>
-                <path d="M120 88V72m-6 6 6-6 6 6" stroke="#16161a" stroke-width="1.75"/>
-              </svg>
+    <!-- ═════════ 02 Как работает ═════════ -->
+    <section class="section section--dark section--flush-top on-dark" id="how" aria-labelledby="how-title">
+      <div class="band band--how" aria-hidden="true">
+        <kronto-waves seed="5" palette="dusk" tilt="0.12" freq="2.4" amp="0.12" bands="0.2"></kronto-waves>
+      </div>
+      <div class="wrap section__stack how">
+        <div class="head">
+          <div class="head__title">
+            <span class="eyebrow">02 / Как это работает</span>
+            <h2 class="h2" id="how-title">Три шага от&nbsp;документов до&nbsp;ответа</h2>
+          </div>
+          <p class="lead lead--muted">Модель не&nbsp;отвечает «из&nbsp;головы»: она получает только фрагменты документов, относящиеся к&nbsp;вопросу, и&nbsp;строит ответ по&nbsp;ним.</p>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <div class="step__art step__art--ochre" aria-hidden="true">
+              <kronto-lines variant="streams" color="#F0E7D5" seed="7" count="26" opacity="1.3"></kronto-lines>
+              <span class="step__num">01</span>
+              <span class="step__icon"><svg class="icon" width="17" height="17"><use href="#i-upload"/></svg></span>
             </div>
-            <p class="flow__num mono">1</p>
-            <h3>Компания подключает источники</h3>
-            <p class="muted">Загружает файлы или подключает Битрикс24, Confluence, Яндекс Диск и&nbsp;Вики.</p>
+            <div class="step__body">
+              <h3 class="step__title">Компания подключает источники</h3>
+              <p class="step__text">Загружает файлы или подключает Битрикс24, Яндекс 360&nbsp;и&nbsp;Confluence. Права доступа переносятся из&nbsp;системы: сотрудник найдёт только то, что ему и&nbsp;так открыто.</p>
+            </div>
           </li>
-          <li class="flow__step">
-            <div class="flow__art" aria-hidden="true">
-              <svg viewBox="0 0 160 110" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="10" y="12" width="44" height="30" rx="5" fill="#fff" stroke="#16161a" stroke-width="1.5"/>
-                <rect x="60" y="12" width="44" height="30" rx="5" fill="#fff" stroke="#cfcac0"/>
-                <rect x="110" y="12" width="40" height="30" rx="5" fill="#fff" stroke="#cfcac0"/>
-                <rect x="10" y="50" width="30" height="30" rx="5" fill="#fff" stroke="#cfcac0"/>
-                <rect x="46" y="50" width="54" height="30" rx="5" fill="#fff" stroke="#cfcac0"/>
-                <rect x="106" y="50" width="44" height="30" rx="5" fill="#ecebfd" stroke="#3b34d6" stroke-width="1.5"/>
-                <path d="M18 22h28M18 31h18M68 22h28M68 31h20M118 22h24M18 60h14M54 60h38M54 69h26M114 60h28M114 69h18" stroke="#cfcac0" stroke-width="3"/>
-                <path d="M10 94h140" stroke="#16161a" stroke-width="1.5" stroke-dasharray="2 6"/>
-              </svg>
+          <li class="step">
+            <div class="step__art step__art--teal" aria-hidden="true">
+              <kronto-lines variant="contour" color="#F0E7D5" seed="6" count="22" opacity="1.4"></kronto-lines>
+              <span class="step__num">02</span>
+              <span class="step__icon"><svg class="icon" width="17" height="17"><use href="#i-grid"/></svg></span>
             </div>
-            <p class="flow__num mono">2</p>
-            <h3>kronto разбирает документы на&nbsp;фрагменты</h3>
-            <p class="muted">Каждый документ делится на&nbsp;смысловые куски, по&nbsp;ним строится поисковый индекс. kronto ищет по&nbsp;смыслу, а&nbsp;не&nbsp;только по&nbsp;совпадению слов.</p>
+            <div class="step__body">
+              <h3 class="step__title">kronto разбирает документы на&nbsp;фрагменты</h3>
+              <p class="step__text">Каждый документ делится на&nbsp;смысловые куски, по&nbsp;ним строится поисковый индекс. kronto ищет по&nbsp;смыслу, а&nbsp;не&nbsp;только по&nbsp;совпадению слов. Поправили документ&nbsp;— ответы обновились.</p>
+            </div>
           </li>
-          <li class="flow__step">
-            <div class="flow__art" aria-hidden="true">
-              <svg viewBox="0 0 160 110" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="58" y="8" width="94" height="26" rx="13" fill="#f5f1e8"/>
-                <path d="M72 21h66" stroke="#cfcac0" stroke-width="3"/>
-                <rect x="8" y="44" width="128" height="56" rx="10" fill="#fff" stroke="#16161a" stroke-width="1.5"/>
-                <path d="M22 60h78M22 72h92M22 84h50" stroke="#cfcac0" stroke-width="3"/>
-                <circle cx="86" cy="84" r="8" fill="#3b34d6"/>
-                <path d="M84 81h2.5v6" stroke="#fff" stroke-width="1.5"/>
-              </svg>
+          <li class="step">
+            <div class="step__art step__art--indigo" aria-hidden="true">
+              <kronto-lines variant="arcs-r" color="#F0E7D5" seed="4" count="30" opacity="1.3"></kronto-lines>
+              <span class="step__num">03</span>
+              <span class="step__icon"><svg class="icon" width="17" height="17"><use href="#i-message"/></svg></span>
             </div>
-            <p class="flow__num mono">3</p>
-            <h3>Сотрудник задаёт вопрос и&nbsp;получает ответ</h3>
-            <p class="muted">Обычным языком, как коллеге. В&nbsp;ответе есть ссылки на&nbsp;документы&nbsp;— каждую можно открыть и&nbsp;проверить.</p>
+            <div class="step__body">
+              <h3 class="step__title">Сотрудник спрашивает и&nbsp;получает ответ</h3>
+              <p class="step__text">Обычными словами, как коллегу. В&nbsp;ответе&nbsp;— ссылки на&nbsp;документы: каждую можно открыть и&nbsp;проверить.</p>
+            </div>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- ═════════ 5.5 Демо ═════════ -->
-    <section class="section section--surface" id="demo" aria-labelledby="demo-title">
-      <div class="container">
-        <header class="section-head">
-          <p class="mono section-label">демо</p>
-          <h2 id="demo-title">Задайте вопрос строительной компании</h2>
-          <p class="lead">ООО «Меридиан Строй»&nbsp;— вымышленная компания на&nbsp;350&nbsp;сотрудников. Выберите вопрос или напишите свой, затем откройте источник ответа.</p>
-        </header>
+    <!-- ═════════ 03 Демо ═════════ -->
+    <section class="section" id="demo" aria-labelledby="demo-title">
+      <kronto-lines class="bg-art" variant="waves" color="#262F4E" seed="4" count="22" opacity="0.6"></kronto-lines>
+      <div class="wrap demo-section">
+        <div class="demo-section__head">
+          <div class="head__title">
+            <span class="eyebrow">03 / Демо</span>
+            <h2 class="h2" id="demo-title">Спросите строительную компанию</h2>
+            <p class="lead lead--mark"><span>ООО «Меридиан Строй»&nbsp;— вымышленная компания на&nbsp;350&nbsp;сотрудников. Выберите вопрос и&nbsp;откройте источник ответа: каждая цифра в&nbsp;ответе ведёт к&nbsp;пункту документа.</span></p>
+          </div>
+          <a class="btn btn--outline demo-section__cta" href="#contact">Показать на&nbsp;ваших документах<svg class="icon btn__arrow" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
 
-        <p class="demo-note mono"><svg width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><use href="#i-file"/></svg>Демо на&nbsp;вымышленных документах. Ответы заготовлены заранее.</p>
-
-        <div class="demo window" data-demo>
-          <div class="window__bar demo__bar">
-            <span class="window__title"><span class="window__mark" aria-hidden="true"></span><span class="demo__company">ООО «Меридиан Строй»</span> <span class="mono muted demo__meta">350&nbsp;сотрудников</span></span>
-            <button class="btn btn--ghost btn--sm demo__reset" type="button" data-demo-reset>
-              <svg width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><use href="#i-reset"/></svg><span class="demo__reset-label">Начать заново</span>
+        <div class="demo" data-demo>
+          <div class="demo__bar">
+            <div class="demo__company">
+              <span class="demo__mark" aria-hidden="true"><span></span></span>
+              <span class="demo__name">ООО «Меридиан Строй»</span>
+              <span class="demo__meta mono">350&nbsp;сотрудников</span>
+            </div>
+            <button class="demo__reset" type="button" data-demo-reset aria-label="Начать заново">
+              <svg class="icon" width="15" height="15" aria-hidden="true"><use href="#i-reset"/></svg><span class="demo__reset-label">Начать заново</span>
             </button>
           </div>
-
-          <div class="demo__grid">
-            <aside class="demo__docs is-collapsed" aria-label="Подключённые документы" data-docs>
-              <p class="demo__docs-heading" aria-hidden="true">Подключённые документы <span class="mono muted">7</span></p>
-              <button class="demo__docs-toggle" type="button" aria-expanded="false" aria-controls="docs-list" data-docs-toggle>
-                <span>Подключённые документы <span class="mono muted">7</span></span>
-                <svg width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron"/></svg>
-              </button>
-              <ul class="docs" id="docs-list" data-docs-list>
-                <!-- Список заполняется из demo-data.js; этот вариант виден без JavaScript -->
-                <li class="doc"><span class="doc__icon doc__icon--docx">docx</span><span><span class="doc__name">Положение о&nbsp;служебных командировках</span><span class="doc__src mono">Диск</span></span></li>
-                <li class="doc"><span class="doc__icon doc__icon--pdf">pdf</span><span><span class="doc__name">Регламент документооборота</span><span class="doc__src mono">Диск</span></span></li>
-                <li class="doc"><span class="doc__icon doc__icon--pdf">pdf</span><span><span class="doc__name">Положение о&nbsp;закупках</span><span class="doc__src mono">Диск</span></span></li>
-                <li class="doc"><span class="doc__icon doc__icon--web">web</span><span><span class="doc__name">Реестр шаблонов ПТО</span><span class="doc__src mono">Вики</span></span></li>
-                <li class="doc"><span class="doc__icon doc__icon--pdf">pdf</span><span><span class="doc__name">Правила внутреннего трудового распорядка</span><span class="doc__src mono">Диск</span></span></li>
-                <li class="doc"><span class="doc__icon doc__icon--docx">docx</span><span><span class="doc__name">Инструкция по&nbsp;охране труда на&nbsp;объекте</span><span class="doc__src mono">Диск</span></span></li>
-                <li class="doc"><span class="doc__icon doc__icon--web">web</span><span><span class="doc__name">Первая неделя: памятка новичку</span><span class="doc__src mono">Вики</span></span></li>
+          <div class="demo__body">
+            <details class="demo__docs" open data-demo-docs>
+              <summary class="demo__docs-title">Подключённые документы <span class="demo__docs-count">7</span></summary>
+              <ul class="doc-list">
+                <li class="doc" data-doc="trips"><span class="doc__type doc__type--docx">docx</span><span class="doc__info"><span class="doc__title">Положение о&nbsp;служебных командировках</span><span class="doc__meta mono">docx · Диск</span></span></li>
+                <li class="doc" data-doc="docflow"><span class="doc__type doc__type--pdf">pdf</span><span class="doc__info"><span class="doc__title">Регламент документооборота</span><span class="doc__meta mono">pdf · Диск</span></span></li>
+                <li class="doc" data-doc="purchases"><span class="doc__type doc__type--pdf">pdf</span><span class="doc__info"><span class="doc__title">Положение о&nbsp;закупках</span><span class="doc__meta mono">pdf · Диск</span></span></li>
+                <li class="doc" data-doc="pto"><span class="doc__type doc__type--web">web</span><span class="doc__info"><span class="doc__title">Реестр шаблонов ПТО</span><span class="doc__meta mono">страница · Вики</span></span></li>
+                <li class="doc" data-doc="rules"><span class="doc__type doc__type--pdf">pdf</span><span class="doc__info"><span class="doc__title">Правила внутреннего трудового распорядка</span><span class="doc__meta mono">pdf · Диск</span></span></li>
+                <li class="doc" data-doc="safety"><span class="doc__type doc__type--docx">docx</span><span class="doc__info"><span class="doc__title">Инструкция по&nbsp;охране труда на&nbsp;объекте</span><span class="doc__meta mono">docx · Диск</span></span></li>
+                <li class="doc" data-doc="newcomer"><span class="doc__type doc__type--web">web</span><span class="doc__info"><span class="doc__title">Первая неделя: памятка новичку</span><span class="doc__meta mono">страница · Вики</span></span></li>
               </ul>
-            </aside>
-
+            </details>
             <div class="demo__chat">
-              <div class="chat" data-chat role="region" aria-label="Переписка с ассистентом" tabindex="0">
-                <div class="msg msg--bot msg--intro">
-                  <p>Здравствуйте! Я&nbsp;отвечаю по&nbsp;документам ООО «Меридиан Строй» и&nbsp;к&nbsp;каждому ответу прикладываю источник. Выберите вопрос ниже или напишите свой.</p>
+              <div class="demo__thread" data-demo-thread role="log" aria-live="polite" aria-label="Диалог с kronto" tabindex="0">
+                <div class="msg">
+                  <p class="msg__q">До&nbsp;какой суммы можно купить материалы без тендера?</p>
+                  <p class="msg__p">До&nbsp;300&nbsp;000&nbsp;₽ с&nbsp;НДС по&nbsp;одной закупке&nbsp;— без конкурентных процедур.</p>
+                  <p class="msg__p">Если сумма больше, отдел снабжения запрашивает котировки минимум у&nbsp;трёх поставщиков. Делить одну закупку на&nbsp;несколько, чтобы уложиться в&nbsp;лимит, нельзя.</p>
                 </div>
               </div>
-
-              <p class="visually-hidden" aria-live="polite" data-live></p>
-
-              <div class="composer">
-                <form class="composer__form" data-demo-form>
-                  <label class="visually-hidden" for="demo-input">Ваш вопрос</label>
-                  <input class="composer__input" id="demo-input" type="text" autocomplete="off" placeholder="Задайте вопрос по&nbsp;документам…" maxlength="200">
-                  <button class="composer__send" type="submit" aria-label="Отправить вопрос">
-                    <svg width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-arrow-up"/></svg>
-                  </button>
-                </form>
-                <p class="visually-hidden" id="chips-title">Готовые вопросы</p>
-                <ul class="chips" aria-labelledby="chips-title" data-chips>
-                  <li><button class="chip" type="button" data-scenario="trip">Как оформить командировку на&nbsp;объект?</button></li>
-                  <li><button class="chip" type="button" data-scenario="tender">До&nbsp;какой суммы можно купить материалы без тендера?</button></li>
-                  <li><button class="chip" type="button" data-scenario="act">Где шаблон акта скрытых работ?</button></li>
-                  <li><button class="chip" type="button" data-scenario="remote">Сколько дней удалёнки положено проектировщикам?</button></li>
-                </ul>
-                <noscript><p class="mono muted">Для работы демо включите JavaScript.</p></noscript>
-              </div>
-            </div>
-
-            <div class="sheet-backdrop" data-sheet-backdrop hidden></div>
-            <div class="source-panel" id="source-panel" role="dialog" aria-labelledby="sp-title" tabindex="-1" data-source-panel hidden>
-              <div class="source-panel__head">
-                <div>
-                  <p class="mono muted" data-sp-meta>источник</p>
-                  <h3 class="source-panel__title" id="sp-title" data-sp-title>Документ</h3>
-                </div>
-                <button class="icon-btn" type="button" aria-label="Закрыть источник" data-sp-close>
-                  <svg width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><use href="#i-x"/></svg>
+              <div class="demo__compose">
+              <form class="demo__ask" data-demo-form>
+                <label class="visually-hidden" for="demo-input">Вопрос по&nbsp;документам</label>
+                <input class="demo__input" id="demo-input" name="q" type="text" autocomplete="off" enterkeyhint="send" maxlength="200" placeholder="Задайте вопрос по документам…">
+                <button class="demo__send" type="submit" aria-label="Отправить вопрос">
+                  <svg class="icon" width="15" height="15" aria-hidden="true"><use href="#i-send"/></svg>
                 </button>
+              </form>
               </div>
-              <p class="source-panel__section" data-sp-section></p>
-              <div class="source-panel__text" data-sp-text></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═════════ 5.6 Чем отличается ═════════ -->
-    <section class="section" id="diff" aria-labelledby="diff-title">
-      <div class="container">
-        <header class="section-head">
-          <p class="mono section-label">отличия</p>
-          <h2 id="diff-title">Чем kronto отличается от&nbsp;публичного ИИ-чата</h2>
-          <p class="lead">kronto умеет то&nbsp;же, что обычная языковая модель: ответить, объяснить, сделать сводку, написать текст. Разница в&nbsp;том, что он опирается на&nbsp;документы вашей компании и&nbsp;показывает, откуда взял ответ.</p>
-        </header>
+    <!-- ═════════ 04 Отличия ═════════ -->
+    <section class="section section--flush-top" id="diffs" aria-labelledby="diffs-title">
+      <kronto-lines class="bg-art" variant="contour" color="#2F6B66" seed="6" count="24" fade="to left"></kronto-lines>
+      <div class="wrap section__stack">
+        <div class="head">
+          <div class="head__title">
+            <span class="eyebrow">04 / Отличия</span>
+            <h2 class="h2" id="diffs-title">Чем kronto отличается от&nbsp;публичного ИИ-чата</h2>
+          </div>
+          <p class="lead lead--mark"><span>kronto умеет то&nbsp;же, что обычная языковая модель: ответить, объяснить, сделать сводку. Разница&nbsp;— он&nbsp;опирается на&nbsp;документы вашей компании и&nbsp;показывает, откуда взял ответ.</span></p>
+        </div>
+        <ul class="cards cards--3">
+          <li class="card card--diff"><span class="card__num mono">01</span><div><h3 class="card__title">Отвечает по&nbsp;документам компании</h3><p class="card__text">Знает ваши регламенты, стандарты и&nbsp;инструкции и&nbsp;отвечает так, как принято у&nbsp;вас, а&nbsp;не&nbsp;«в&nbsp;среднем по&nbsp;рынку».</p></div></li>
+          <li class="card card--diff card--dark on-dark"><span class="card__num mono">02</span><div><h3 class="card__title">К&nbsp;ответу&nbsp;— ссылка на&nbsp;источник</h3><p class="card__text">Видно, какой документ и&nbsp;какой фрагмент легли в&nbsp;основу ответа. Сотрудник открывает его и&nbsp;проверяет.</p></div></li>
+          <li class="card card--diff"><span class="card__num mono">03</span><div><h3 class="card__title">Не&nbsp;выдумывает</h3><p class="card__text">Если ответа в&nbsp;документах нет, kronto так и&nbsp;скажет. Такие вопросы собираются в&nbsp;отчёт: видно, каких документов не&nbsp;хватает.</p></div></li>
+          <li class="card card--diff card--dark on-dark"><span class="card__num mono">04</span><div><h3 class="card__title">Данные в&nbsp;России</h3><p class="card__text">Документы хранятся в&nbsp;России, модели работают у&nbsp;российских облачных провайдеров. Рабочие файлы больше не&nbsp;нужно вставлять в&nbsp;публичные чаты.</p></div></li>
+          <li class="card card--diff"><span class="card__num mono">05</span><div><h3 class="card__title">Права&nbsp;— как в&nbsp;ваших системах</h3><p class="card__text">Документ из&nbsp;закрытого раздела видят только те, кому он&nbsp;открыт в&nbsp;Битрикс24, Яндекс 360&nbsp;или Confluence. Загруженные файлы раскладываются по&nbsp;папкам с&nbsp;доступом по&nbsp;отделам.</p></div></li>
+          <li class="card card--diff"><span class="card__num mono">06</span><div><h3 class="card__title">Не&nbsp;нужна своя ML-команда</h3><p class="card__text">Внедрение бесплатно: источники подключаем вместе с&nbsp;вами на&nbsp;созвоне, сопровождение&nbsp;— на&nbsp;нашей стороне.</p></div></li>
+        </ul>
+        <div class="center-row">
+          <a class="btn btn--teal" href="#contact">Записаться на&nbsp;созвон<svg class="icon btn__arrow" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
 
-        <ul class="diff">
-          <li class="diff__row diff__row--major">
-            <h3>Отвечает по&nbsp;документам компании, а&nbsp;не&nbsp;по&nbsp;интернету</h3>
-            <p class="muted">Знает ваши регламенты, стандарты и&nbsp;инструкции. Отвечает так, как принято у&nbsp;вас, а&nbsp;не&nbsp;«в&nbsp;среднем по&nbsp;рынку».</p>
+    <!-- ═════════ 05 Безопасность ═════════ -->
+    <section class="section section--flush-top" id="security" aria-labelledby="security-title">
+      <kronto-lines class="bg-art" variant="arcs-r" color="#7480aa" seed="2" count="26" opacity="0.9" fade="to left"></kronto-lines>
+      <div class="wrap section__stack">
+        <div class="head head--action">
+          <div class="head__title">
+            <span class="eyebrow">05 / Безопасность</span>
+            <h2 class="h2" id="security-title">Документы компании остаются документами компании</h2>
+            <p class="lead lead--mark"><span>Где хранятся данные, кто что видит и&nbsp;как защищён вход&nbsp;— коротко ниже, подробно&nbsp;— по&nbsp;кнопке.</span></p>
+          </div>
+          <button class="btn btn--outline" type="button" data-dialog-open="security-dialog" aria-haspopup="dialog">Безопасность и&nbsp;данные<svg class="icon btn__arrow" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+        <ul class="cards cards--4">
+          <li class="card card--sec">
+            <span class="card__icon" aria-hidden="true"><svg class="icon" width="18" height="18"><use href="#i-server"/></svg></span>
+            <h3 class="card__subtitle">Хранение в&nbsp;России</h3>
+            <p class="card__small">Документы и&nbsp;вопросы хранятся на&nbsp;серверах в&nbsp;России</p>
           </li>
-          <li class="diff__row diff__row--major">
-            <h3>К&nbsp;каждому ответу&nbsp;— ссылка на&nbsp;источник</h3>
-            <p class="muted">Видно, какой документ и&nbsp;какой фрагмент лёг в&nbsp;основу ответа. Сотрудник может открыть и&nbsp;проверить.</p>
+          <li class="card card--sec">
+            <span class="card__icon" aria-hidden="true"><svg class="icon" width="18" height="18"><use href="#i-shield"/></svg></span>
+            <h3 class="card__subtitle">Изоляция данных</h3>
+            <p class="card__small">Данные каждой компании изолированы на&nbsp;уровне базы данных</p>
           </li>
-          <li class="diff__row diff__row--major">
-            <h3>Не&nbsp;выдумывает</h3>
-            <p class="muted">Если ответа в&nbsp;документах нет, kronto так и&nbsp;говорит. Правдоподобная выдумка в&nbsp;рабочем вопросе хуже, чем «не&nbsp;знаю».</p>
+          <li class="card card--sec">
+            <span class="card__icon" aria-hidden="true"><svg class="icon" width="18" height="18"><use href="#i-lock"/></svg></span>
+            <h3 class="card__subtitle">Защищённый вход</h3>
+            <p class="card__small">Второй фактор при входе для всех, ключи доступа и&nbsp;приложение&nbsp;— для администраторов</p>
           </li>
-          <li class="diff__row">
-            <h3>Российские модели, данные в&nbsp;России</h3>
-            <p class="muted">Документы не&nbsp;уходят в&nbsp;зарубежные и&nbsp;публичные сервисы. Сотрудникам больше не&nbsp;нужно вставлять рабочие файлы в&nbsp;публичные чаты.</p>
-          </li>
-          <li class="diff__row">
-            <h3>Не&nbsp;нужна своя ML-команда</h3>
-            <p class="muted">Внедрение бесплатно: источники подключаем вместе с&nbsp;вами на&nbsp;созвоне, сопровождение&nbsp;— на&nbsp;нашей стороне.</p>
+          <li class="card card--sec">
+            <span class="card__icon" aria-hidden="true"><svg class="icon" width="18" height="18"><use href="#i-eye-off"/></svg></span>
+            <h3 class="card__subtitle">Обезличенная аналитика</h3>
+            <p class="card__small">Администратор видит вопросы сотрудников только обезличенно</p>
           </li>
         </ul>
       </div>
     </section>
 
-    <!-- ═════════ 5.7 Для кого ═════════ -->
-    <section class="section" id="audience" aria-labelledby="audience-title">
-      <div class="container">
-        <header class="section-head">
-          <p class="mono section-label">для кого</p>
-          <h2 id="audience-title">Для компаний от&nbsp;30&nbsp;сотрудников, которые работают за&nbsp;компьютером</h2>
-          <p class="lead">Отрасль не&nbsp;важна, минимума документации нет&nbsp;— достаточно одного документа в&nbsp;цифровом виде. kronto нужен там, где у&nbsp;компании нет своей ML-команды и&nbsp;собственного <span class="nowrap">ИИ-ассистента</span>, а&nbsp;сотрудники каждый день ищут ответы во&nbsp;внутренних документах.</p>
-        </header>
-
-        <div class="tabs" data-tabs>
-          <p class="tabs__hint mono muted" id="tabs-hint">какие вопросы задают сотрудники разных отделов</p>
-          <div class="tabs__list" role="tablist" aria-labelledby="tabs-hint">
-            <button class="tab" type="button" role="tab" id="tab-sales" aria-controls="panel-sales" aria-selected="true">Продажи</button>
-            <button class="tab" type="button" role="tab" id="tab-proc" aria-controls="panel-proc" aria-selected="false" tabindex="-1">Закупки</button>
-            <button class="tab" type="button" role="tab" id="tab-design" aria-controls="panel-design" aria-selected="false" tabindex="-1">Проектирование</button>
-            <button class="tab" type="button" role="tab" id="tab-hr" aria-controls="panel-hr" aria-selected="false" tabindex="-1">HR</button>
-            <button class="tab" type="button" role="tab" id="tab-acc" aria-controls="panel-acc" aria-selected="false" tabindex="-1">Бухгалтерия</button>
-            <button class="tab" type="button" role="tab" id="tab-sup" aria-controls="panel-sup" aria-selected="false" tabindex="-1">Поддержка</button>
-          </div>
-
-          <div class="tabs__panel" role="tabpanel" id="panel-sales" aria-labelledby="tab-sales" tabindex="0">
-            <h3 class="tabs__panel-title">Продажи</h3>
-            <ul class="questions">
-              <li>Какую максимальную скидку менеджер может дать без согласования?</li>
-              <li>Какой шаблон договора использовать для нового заказчика-юрлица?</li>
-              <li>Сколько дней действует коммерческое предложение?</li>
-            </ul>
-          </div>
-          <div class="tabs__panel" role="tabpanel" id="panel-proc" aria-labelledby="tab-proc" tabindex="0">
-            <h3 class="tabs__panel-title">Закупки</h3>
-            <ul class="questions">
-              <li>Какой срок оплаты по&nbsp;договорам с&nbsp;субподрядчиками?</li>
-              <li>Какие документы запросить у&nbsp;нового поставщика для проверки?</li>
-              <li>До&nbsp;какой суммы можно закупать без тендера?</li>
-            </ul>
-          </div>
-          <div class="tabs__panel" role="tabpanel" id="panel-design" aria-labelledby="tab-design" tabindex="0">
-            <h3 class="tabs__panel-title">Проектирование</h3>
-            <ul class="questions">
-              <li>По&nbsp;какому шаблону оформлять пояснительную записку?</li>
-              <li>Где лежат актуальные типовые узлы и&nbsp;альбомы?</li>
-              <li>Кто утверждает изменения в&nbsp;рабочей документации?</li>
-            </ul>
-          </div>
-          <div class="tabs__panel" role="tabpanel" id="panel-hr" aria-labelledby="tab-hr" tabindex="0">
-            <h3 class="tabs__panel-title">HR</h3>
-            <ul class="questions">
-              <li>Как оформить перенос отпуска на&nbsp;другие даты?</li>
-              <li>Какие документы новый сотрудник приносит в&nbsp;первый день?</li>
-              <li>Как проходит оценка по&nbsp;итогам испытательного срока?</li>
-            </ul>
-          </div>
-          <div class="tabs__panel" role="tabpanel" id="panel-acc" aria-labelledby="tab-acc" tabindex="0">
-            <h3 class="tabs__panel-title">Бухгалтерия</h3>
-            <ul class="questions">
-              <li>Какие чеки принимаются к&nbsp;авансовому отчёту?</li>
-              <li>До&nbsp;какого числа сдавать первичные документы за&nbsp;месяц?</li>
-              <li>Кто подписывает акты сверки с&nbsp;контрагентами?</li>
-            </ul>
-          </div>
-          <div class="tabs__panel" role="tabpanel" id="panel-sup" aria-labelledby="tab-sup" tabindex="0">
-            <h3 class="tabs__panel-title">Поддержка</h3>
-            <ul class="questions">
-              <li>За&nbsp;какое время нужно ответить на&nbsp;обращение с&nbsp;высоким приоритетом?</li>
-              <li>Как передать обращение на&nbsp;вторую линию?</li>
-              <li>Какой шаблон ответа использовать при возврате товара?</li>
-            </ul>
+    <!-- ═════════ 06 Тарифы ═════════ -->
+    <section class="section section--flush-top section--rule" id="pricing" aria-labelledby="pricing-title">
+      <kronto-lines class="bg-art" variant="arcs-l" color="#2F6B66" seed="11" count="24" fade="to right"></kronto-lines>
+      <kronto-lines class="bg-art" variant="arcs-r" color="#262F4E" seed="5" count="16" opacity="0.55" fade="to left"></kronto-lines>
+      <div class="wrap section__stack pricing">
+        <div class="head">
+          <div class="head__title">
+            <span class="eyebrow">06 / Тарифы</span>
+            <h2 class="h2" id="pricing-title">Цена&nbsp;— за&nbsp;рабочее место</h2>
+            <p class="lead lead--mark"><span>Тариф выбирает компания целиком, внедрение бесплатно.</span></p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ═════════ 5.8 Подключение источников ═════════ -->
-    <section class="section" id="sources" aria-labelledby="sources-title">
-      <div class="container">
-        <header class="section-head">
-          <p class="mono section-label">источники</p>
-          <h2 id="sources-title">Откуда kronto берёт документы</h2>
-          <p class="lead">Загрузите файлы или подключите системы, где документы уже лежат. В&nbsp;тарифе Pro&nbsp;— до&nbsp;пяти коннекторов, в&nbsp;Max&nbsp;— без ограничений.</p>
-        </header>
+        <ul class="plans">
+          <li class="plan" data-plan>
+            <div class="plan__inner">
+              <div class="plan__face plan__front" data-plan-front>
+                <div class="plan__top"><h3 class="plan__name">Базовый</h3><span class="plan__num mono">01</span></div>
+                <p class="plan__price"><span class="plan__amount">990&nbsp;₽</span><span class="plan__unit">за&nbsp;место в&nbsp;месяц</span></p>
+                <div class="plan__foot">
+                  <p class="plan__summary">Для компании, которой хватает нескольких рабочих систем.</p>
+                  <button class="plan__more" type="button" aria-expanded="false" aria-controls="plan-base-back" data-plan-open>Подробнее<svg class="icon" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+                </div>
+              </div>
+              <div class="plan__face plan__back" id="plan-base-back" inert data-plan-back>
+                <div class="plan__top">
+                  <h4 class="plan__name">Базовый <span class="plan__back-price">990&nbsp;₽ за&nbsp;место</span></h4>
+                  <button class="plan__close" type="button" data-plan-close aria-label="Вернуться к цене тарифа «Базовый»"><svg class="icon" width="14" height="14" aria-hidden="true"><use href="#i-back"/></svg>Назад</button>
+                </div>
+                <ul class="plan__list">
+                  <li>Ответы со&nbsp;ссылкой на&nbsp;источник и&nbsp;уточняющие вопросы в&nbsp;диалоге</li>
+                  <li>До&nbsp;20&nbsp;обращений в&nbsp;день на&nbsp;место&nbsp;— 420&nbsp;в&nbsp;месяц, общий пул компании</li>
+                  <li>Файлы и&nbsp;до&nbsp;5&nbsp;подключений к&nbsp;рабочим системам</li>
+                  <li>Права доступа&nbsp;— как в&nbsp;подключённых системах</li>
+                  <li>Отчёт о&nbsp;вопросах без ответа в&nbsp;документах</li>
+                  <li>Управление сотрудниками и&nbsp;источниками</li>
+                </ul>
+                <p class="plan__rule">Обычный вопрос&nbsp;— одно обращение, длинный&nbsp;— несколько. На&nbsp;80&nbsp;% пула kronto предупредит, на&nbsp;100&nbsp;% вопросы встанут до&nbsp;следующего месяца&nbsp;— места можно добавить.</p>
+                <a class="plan__cta" href="#contact" data-tariff="base">Обсудить тариф<svg class="icon" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </div>
+            </div>
+          </li>
 
-        <div class="sources">
-          <div class="sources__group">
-            <h3 class="sources__title">Файлы</h3>
-            <ul class="sources__base">
-              <li><svg width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#i-upload"/></svg><span><strong>Загрузка файлов</strong><span class="muted">Word, PowerPoint, PDF и&nbsp;другие форматы</span></span></li>
-            </ul>
-          </div>
-          <div class="sources__group">
-            <h3 class="sources__title">Доступные адаптеры</h3>
-            <p class="muted sources__lead">Адаптер — программа-переходник между kronto и&nbsp;корпоративной системой. Она подключается к&nbsp;системе, забирает оттуда страницы и&nbsp;файлы, передаёт их kronto и&nbsp;дальше следит за&nbsp;изменениями: поправили документ — ответы обновились. У&nbsp;каждой системы свой способ отдавать данные, поэтому адаптер для неё нужен отдельный.</p>
-            <ul class="pills">
-              <li>Битрикс24</li>
-              <li>Confluence Server / Data Center</li>
-              <li>Яндекс Диск</li>
-              <li>Яндекс Вики</li>
-            </ul>
-            <p class="muted sources__note">Нужна другая система&nbsp;— сделаем адаптер под&nbsp;вашу компанию в&nbsp;тарифе Enterprise.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+          <li class="plan plan--dark on-dark" data-plan>
+            <div class="plan__inner">
+              <div class="plan__face plan__front" data-plan-front>
+                <div class="plan__top"><h3 class="plan__name">Расширенный</h3><span class="plan__num mono">02</span></div>
+                <p class="plan__price"><span class="plan__amount">1&nbsp;290&nbsp;₽</span><span class="plan__unit">за&nbsp;место в&nbsp;месяц</span></p>
+                <div class="plan__foot">
+                  <p class="plan__summary">Всё, что в&nbsp;«Базовом»,&nbsp;— для компании с&nbsp;большим числом систем.</p>
+                  <button class="plan__more" type="button" aria-expanded="false" aria-controls="plan-extended-back" data-plan-open>Подробнее<svg class="icon" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+                </div>
+              </div>
+              <div class="plan__face plan__back" id="plan-extended-back" inert data-plan-back>
+                <div class="plan__top">
+                  <h4 class="plan__name">Расширенный <span class="plan__back-price">1&nbsp;290&nbsp;₽ за&nbsp;место</span></h4>
+                  <button class="plan__close" type="button" data-plan-close aria-label="Вернуться к цене тарифа «Расширенный»"><svg class="icon" width="14" height="14" aria-hidden="true"><use href="#i-back"/></svg>Назад</button>
+                </div>
+                <ul class="plan__list">
+                  <li>Всё, что в&nbsp;тарифе «Базовый»</li>
+                  <li>Подключения к&nbsp;поддерживаемым рабочим системам&nbsp;— без ограничения числа</li>
+                  <li>Тот же&nbsp;лимит: 420&nbsp;обращений на&nbsp;место в&nbsp;месяц, общий пул компании</li>
+                </ul>
+                <p class="plan__rule">Подходит, когда документы разложены по&nbsp;многим системам и&nbsp;пяти подключений «Базового» не&nbsp;хватает. Поддерживаемые системы&nbsp;— Битрикс24, Яндекс Диск и&nbsp;Вики, Confluence Server и&nbsp;Data Center.</p>
+                <a class="plan__cta" href="#contact" data-tariff="extended">Обсудить тариф<svg class="icon" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </div>
+            </div>
+          </li>
 
-    <!-- ═════════ 5.9 Безопасность и развёртывание ═════════ -->
-    <section class="section" id="security" aria-labelledby="security-title">
-      <div class="container">
-        <header class="section-head">
-          <p class="mono section-label">безопасность</p>
-          <h2 id="security-title">Выберите, где будет работать kronto</h2>
-          <p class="lead">Варианты отличаются сроками запуска и&nbsp;стоимостью. Быстрее и&nbsp;дешевле всего&nbsp;— облачный сервис на&nbsp;нашем сервере: он входит в&nbsp;любой тариф и&nbsp;подходит большинству компаний.</p>
-        </header>
+          <li class="plan" data-plan>
+            <div class="plan__inner">
+              <div class="plan__face plan__front" data-plan-front>
+                <div class="plan__top"><h3 class="plan__name">Корпоративный</h3><span class="plan__num mono">03</span></div>
+                <p class="plan__price"><span class="plan__amount">По&nbsp;запросу</span><span class="plan__unit">индивидуальные условия</span></p>
+                <div class="plan__foot">
+                  <p class="plan__summary">Для компании с&nbsp;особыми требованиями к&nbsp;размещению и&nbsp;системам.</p>
+                  <button class="plan__more" type="button" aria-expanded="false" aria-controls="plan-enterprise-back" data-plan-open>Подробнее<svg class="icon" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+                </div>
+              </div>
+              <div class="plan__face plan__back" id="plan-enterprise-back" inert data-plan-back>
+                <div class="plan__top">
+                  <h4 class="plan__name">Корпоративный <span class="plan__back-price">по&nbsp;запросу</span></h4>
+                  <button class="plan__close" type="button" data-plan-close aria-label="Вернуться к цене тарифа «Корпоративный»"><svg class="icon" width="14" height="14" aria-hidden="true"><use href="#i-back"/></svg>Назад</button>
+                </div>
+                <ul class="plan__list">
+                  <li>Размещение в&nbsp;контуре компании&nbsp;— на&nbsp;её&nbsp;серверах</li>
+                  <li>Подключение систем вне стандартного списка</li>
+                  <li>Индивидуальные условия и&nbsp;лимиты</li>
+                </ul>
+                <p class="plan__rule">Условия собираем на&nbsp;созвоне: где разместить kronto, какие системы подключить и&nbsp;сколько обращений нужно сотрудникам.</p>
+                <a class="plan__cta" href="#contact" data-tariff="enterprise">Обсудить тариф<svg class="icon" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </div>
+            </div>
+          </li>
+        </ul>
 
-        <div class="deploy">
-          <div class="deploy__axis mono" aria-hidden="true"><span>быстрый старт</span><span>максимальный контроль</span></div>
-          <ol class="deploy__scale">
-            <li class="deploy__stop">
-              <span class="deploy__point" aria-hidden="true"></span>
-              <h3>Облачный сервис</h3>
-              <p class="muted">kronto работает на&nbsp;нашем сервере в&nbsp;России. Ничего не&nbsp;нужно устанавливать: подключаем на&nbsp;созвоне. Данные каждой компании изолированы.</p>
-              <p class="deploy__meta mono">быстрее всего · входит в&nbsp;тариф</p>
-            </li>
-            <li class="deploy__stop">
-              <span class="deploy__point" aria-hidden="true"></span>
-              <h3>Выделенная установка</h3>
-              <p class="muted">Отдельный экземпляр kronto только для вашей компании.</p>
-              <p class="deploy__meta mono">дольше и&nbsp;дороже · Enterprise</p>
-            </li>
-            <li class="deploy__stop">
-              <span class="deploy__point" aria-hidden="true"></span>
-              <h3>Установка в&nbsp;контур компании</h3>
-              <p class="muted">kronto работает на&nbsp;ваших серверах. Нужна совместная работа с&nbsp;вашей IT-службой.</p>
-              <p class="deploy__meta mono">самый долгий и&nbsp;дорогой · Enterprise</p>
-            </li>
-          </ol>
-        </div>
-
-        <ul class="theses">
-          <li><svg width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#i-pin"/></svg><p><strong>Данные хранятся в&nbsp;России</strong></p></li>
-          <li><svg width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#i-layers"/></svg><p><strong>Данные каждой компании изолированы</strong> <span class="muted">— одна компания не&nbsp;видит документов другой</span></p></li>
-          <li><svg width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chip"/></svg><p><strong>Модели российских провайдеров</strong></p></li>
+        <ul class="pricing__notes">
+          <li><strong>Рабочее место</strong>Сотрудник, который работает за&nbsp;компьютером.</li>
+          <li><strong>Внедрение бесплатно</strong>Подключаем источники вместе с&nbsp;вами на&nbsp;созвоне.</li>
+          <li><strong>Один тариф на&nbsp;компанию</strong>Его выбирают сразу для всех сотрудников.</li>
         </ul>
       </div>
     </section>
 
-    <!-- ═════════ 5.10 Калькулятор ═════════ -->
-    <section class="section section--surface" id="calc" aria-labelledby="calc-title">
-      <div class="container">
-        <header class="section-head">
-          <p class="mono section-label">калькулятор</p>
-          <h2 id="calc-title">Посчитайте для своей компании</h2>
-          <p class="lead">Сколько рабочего времени может вернуть ассистент. Двигайте ползунки или введите свои числа.</p>
-        </header>
-
-        <div class="calc" data-calc>
-          <form class="calc__inputs" data-calc-form>
-            <div class="field-range">
-              <label for="c-emp">Сотрудников с&nbsp;компьютером</label>
-              <input class="field-range__num num" id="c-emp" name="employees" type="number" inputmode="numeric" min="30" max="5000" step="10" value="60">
-              <input class="field-range__slider" type="range" min="30" max="5000" step="10" value="60" aria-label="Сотрудников с компьютером, ползунок" data-for="c-emp">
-              <span class="field-range__scale mono" aria-hidden="true"><span>50</span><span>5&nbsp;000</span></span>
-            </div>
-            <div class="field-range">
-              <label for="c-req">Обращений к&nbsp;ассистенту в&nbsp;день на&nbsp;сотрудника</label>
-              <input class="field-range__num num" id="c-req" name="requests" type="number" inputmode="numeric" min="1" max="30" step="1" value="15">
-              <input class="field-range__slider" type="range" min="1" max="30" step="1" value="15" aria-label="Обращений в день, ползунок" data-for="c-req">
-              <span class="field-range__scale mono" aria-hidden="true"><span>1</span><span>30</span></span>
-            </div>
-            <div class="field-range">
-              <label for="c-min">Минут экономии на&nbsp;одно обращение</label>
-              <input class="field-range__num num" id="c-min" name="minutes" type="number" inputmode="decimal" min="0.5" max="10" step="0.5" value="2">
-              <input class="field-range__slider" type="range" min="0.5" max="10" step="0.5" value="2" aria-label="Минут экономии, ползунок" data-for="c-min">
-              <span class="field-range__scale mono" aria-hidden="true"><span>0,5</span><span>10</span></span>
-            </div>
-            <div class="field-range">
-              <label for="c-rate">Стоимость часа сотрудника, ₽</label>
-              <input class="field-range__num num" id="c-rate" name="rate" type="number" inputmode="numeric" min="200" max="5000" step="10" value="910">
-              <input class="field-range__slider" type="range" min="200" max="5000" step="10" value="910" aria-label="Стоимость часа, ползунок" data-for="c-rate">
-              <span class="field-range__scale mono" aria-hidden="true"><span>200</span><span>5&nbsp;000</span></span>
-            </div>
-          </form>
-
-          <div class="calc__result" aria-live="polite">
-            <p class="mono muted calc__result-label">оценка экономии</p>
-            <p class="calc__money"><output class="num" data-out="money" for="c-emp c-req c-min c-rate">286&nbsp;700&nbsp;₽</output><span class="calc__unit"> в&nbsp;месяц</span></p>
-            <dl class="calc__list">
-              <div><dt>В&nbsp;год</dt><dd class="num" data-out="year">3&nbsp;439&nbsp;800&nbsp;₽</dd></div>
-              <div><dt>Сэкономлено часов в&nbsp;месяц</dt><dd class="num" data-out="hours">630&nbsp;ч</dd></div>
-              <div><dt>Из&nbsp;них продуктивных (50%)</dt><dd class="num" data-out="productive">315&nbsp;ч</dd></div>
-              <div><dt>Эквивалент в&nbsp;ставках</dt><dd class="num" data-out="fte">3,8</dd></div>
-            </dl>
-            <a class="btn btn--light calc__cta" href="#pilot">Обсудить пилот</a>
-            <p class="calc__disclaimer">Оценка, не&nbsp;гарантия. Методика: ориентир ~2&nbsp;минуты на&nbsp;обращение и&nbsp;поправка 50% на&nbsp;продуктивное использование времени взяты из&nbsp;исследования Forrester Total Economic Impact of&nbsp;Glean (2024, заказано Glean). Собственных замеров у&nbsp;нас пока нет&nbsp;— их&nbsp;даст пилот.</p>
-          </div>
+    <!-- ═════════ 07 Вопросы ═════════ -->
+    <section class="section faq-section" id="faq" aria-labelledby="faq-title">
+      <div class="wrap faq-layout">
+        <div class="faq-layout__head">
+          <span class="eyebrow">07 / Вопросы</span>
+          <h2 class="h2 faq-layout__title" id="faq-title">Вопросы и&nbsp;ответы</h2>
         </div>
-      </div>
-    </section>
-
-    <!-- ═════════ 5.11 Тарифы ═════════
-         Цена базового тарифа утверждена (досье v3.2, 10.4). Цены тарифов выше — «по запросу», пока не решены.
-         Чтобы скрыть секцию вместе с пунктом меню, добавьте атрибут hidden:
-         <section class="section" id="pricing" hidden ...>&nbsp;— пункт «Тарифы» в шапке спрячется сам. -->
-    <section class="section" id="pricing" aria-labelledby="pricing-title">
-      <div class="container">
-        <header class="section-head">
-          <p class="mono section-label">тарифы</p>
-          <h2 id="pricing-title">Тарифы</h2>
-          <p class="lead">Подписка за&nbsp;сотрудника в&nbsp;месяц, внедрение бесплатно. Тариф выбирает компания целиком, минимального числа мест нет.</p>
-        </header>
-
-        <div class="plans">
-          <div class="plan">
-            <h3 class="plan__name">Pro</h3>
-            <p class="plan__price">990&nbsp;₽ <span class="muted">за&nbsp;сотрудника в&nbsp;месяц</span></p>
-            <dl class="plan__list">
-              <div><dt>Коннекторы</dt><dd>До&nbsp;5 базовых</dd></div>
-              <div><dt>Запросы</dt><dd>Общий пул на&nbsp;компанию</dd></div>
-              <div><dt>Развёртывание</dt><dd>Облачный сервис</dd></div>
-            </dl>
-            <a class="btn btn--ghost plan__cta" href="#pilot">Записаться на&nbsp;созвон</a>
-          </div>
-          <div class="plan">
-            <h3 class="plan__name">Max</h3>
-            <p class="plan__price">1&nbsp;990&nbsp;₽ <span class="muted">за&nbsp;сотрудника в&nbsp;месяц</span></p>
-            <dl class="plan__list">
-              <div><dt>Коннекторы</dt><dd>Любое число базовых</dd></div>
-              <div><dt>Запросы</dt><dd>Увеличенный пул на&nbsp;компанию</dd></div>
-              <div><dt>Развёртывание</dt><dd>Облачный сервис</dd></div>
-            </dl>
-            <a class="btn btn--ghost plan__cta" href="#pilot">Записаться на&nbsp;созвон</a>
-          </div>
-          <div class="plan">
-            <h3 class="plan__name">Enterprise</h3>
-            <p class="plan__price">По&nbsp;запросу</p>
-            <dl class="plan__list">
-              <div><dt>Коннекторы</dt><dd>Любые, включая адаптеры под&nbsp;ваши системы</dd></div>
-              <div><dt>Запросы</dt><dd>По&nbsp;договорённости</dd></div>
-              <div><dt>Развёртывание</dt><dd>Выделенная установка или контур компании</dd></div>
-            </dl>
-            <a class="btn btn--ghost plan__cta" href="#pilot">Записаться на&nbsp;созвон</a>
-          </div>
-        </div>
-        <p class="muted plans__note">Базовые коннекторы&nbsp;— Битрикс24, Confluence, Яндекс Диск и&nbsp;Вики, список пополняется. Пилот&nbsp;— первый месяц бесплатно.</p>
-      </div>
-    </section>
-
-    <!-- ═════════ 5.12 Статус ═════════ -->
-    <section class="section" id="status" aria-labelledby="status-title">
-      <div class="container">
-        <header class="section-head">
-          <p class="mono section-label">статус проекта</p>
-          <h2 id="status-title">Над чем работаем</h2>
-          <p class="lead">Ближайший шаг&nbsp;— интерфейс для сотрудников, запись на&nbsp;созвон с&nbsp;сайта и&nbsp;пилот с&nbsp;первой компанией.</p>
-        </header>
-
-        <ol class="roadmap">
-          <li class="roadmap__stage roadmap__stage--now">
-            <p class="roadmap__when mono">сейчас</p>
-            <ul class="roadmap__items">
-              <li>Повышаем точность поиска: объединяем поиск по&nbsp;смыслу и&nbsp;по&nbsp;ключевым словам</li>
-              <li>Ищем первую компанию для пилота</li>
-            </ul>
-          </li>
-          <li class="roadmap__stage">
-            <p class="roadmap__when mono">дальше</p>
-            <ul class="roadmap__items">
-              <li>Интерфейс ассистента: ответы по&nbsp;загруженным файлам</li>
-              <li>Выбор тарифа и&nbsp;запись на&nbsp;созвон на&nbsp;сайте</li>
-              <li>Пилот с&nbsp;первой компанией</li>
-            </ul>
-          </li>
-          <li class="roadmap__stage">
-            <p class="roadmap__when mono">потом</p>
-            <ul class="roadmap__items">
-              <li>Новые коннекторы по&nbsp;запросам компаний</li>
-              <li>Отчёт о&nbsp;пробелах в&nbsp;документах: какие вопросы остались без ответа</li>
-            </ul>
-          </li>
-        </ol>
-
-        <div class="pilot-call">
-          <p><strong>Ищем компании для пилота:</strong> от&nbsp;30&nbsp;сотрудников за&nbsp;компьютером, хотя&nbsp;бы один документ в&nbsp;цифровом виде.</p>
-          <a class="btn btn--dark" href="#pilot">Обсудить пилот</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═════════ 5.14 Вопросы и ответы ═════════ -->
-    <section class="section" id="faq" aria-labelledby="faq-title">
-      <div class="container faq-layout">
-        <header class="section-head section-head--stack">
-          <p class="mono section-label">вопросы</p>
-          <h2 id="faq-title">Вопросы и&nbsp;ответы</h2>
-        </header>
-
         <div class="faq">
-          <details class="faq__item">
-            <summary>Чем это отличается от&nbsp;ChatGPT или Алисы?<svg width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron"/></svg></summary>
-            <div class="faq__body"><p>Публичные ChatGPT и&nbsp;Алиса отвечают по&nbsp;общим знаниям и&nbsp;не&nbsp;видят документов вашей компании, а&nbsp;рабочие файлы, которые сотрудники туда вставляют, уходят в&nbsp;публичный сервис. kronto отвечает по&nbsp;вашим регламентам, стандартам и&nbsp;инструкциям и&nbsp;к&nbsp;каждому ответу прикладывает ссылку на&nbsp;документ. Данные при этом хранятся в&nbsp;России.</p></div>
+          <details class="faq__item" name="faq" open>
+            <summary class="faq__q"><span class="faq__n mono">01</span><span class="faq__text">Чем это отличается от&nbsp;ChatGPT или Алисы?</span><span class="faq__sign" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Публичные чаты отвечают по&nbsp;общим знаниям и&nbsp;не&nbsp;видят документов вашей компании, а&nbsp;рабочие файлы, которые сотрудники туда вставляют, уходят в&nbsp;публичный сервис. kronto отвечает по&nbsp;вашим регламентам и&nbsp;инструкциям, к&nbsp;каждому ответу прикладывает ссылку на&nbsp;документ, а&nbsp;данные хранятся в&nbsp;России.</p></div>
           </details>
-          <details class="faq__item">
-            <summary>Где хранятся наши документы?<svg width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron"/></svg></summary>
-            <div class="faq__body"><p>В&nbsp;России. В&nbsp;облачном варианте&nbsp;— на&nbsp;нашем сервере, данные каждой компании изолированы от&nbsp;других. Можно выбрать выделенную установку или установку в&nbsp;собственный контур&nbsp;— это дольше и&nbsp;дороже, доступно в&nbsp;тарифе Enterprise.</p></div>
+          <details class="faq__item" name="faq">
+            <summary class="faq__q"><span class="faq__n mono">02</span><span class="faq__text">Где хранятся наши документы?</span><span class="faq__sign" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>В&nbsp;России: на&nbsp;нашем сервере, данные каждой компании изолированы от&nbsp;других. В&nbsp;тарифе «Корпоративный» kronto можно установить в&nbsp;контур компании. Подробнее&nbsp;— в&nbsp;разделе <button class="link-btn" type="button" data-dialog-open="security-dialog" aria-haspopup="dialog">«Безопасность и&nbsp;данные»</button>.</p></div>
           </details>
-          <details class="faq__item">
-            <summary>Что, если ответа в&nbsp;документах нет?<svg width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron"/></svg></summary>
-            <div class="faq__body"><p>kronto прямо скажет, что в&nbsp;подключённых документах ответа нет, и&nbsp;не&nbsp;станет его придумывать. Мы разрабатываем отчёт о&nbsp;пробелах: такие вопросы будут собираться в&nbsp;список, чтобы было видно, каких документов не&nbsp;хватает.</p></div>
+          <details class="faq__item" name="faq">
+            <summary class="faq__q"><span class="faq__n mono">03</span><span class="faq__text">Что, если ответа в&nbsp;документах нет?</span><span class="faq__sign" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>kronto скажет, что в&nbsp;подключённых документах ответа нет. Компания выбирает, что делать дальше: честный отказ или общий ответ с&nbsp;заметной пометкой «не&nbsp;из&nbsp;документов компании». Такие вопросы собираются в&nbsp;отчёт о&nbsp;пробелах&nbsp;— видно, каких документов не&nbsp;хватает.</p></div>
           </details>
-          <details class="faq__item">
-            <summary>Какие модели используются?<svg width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron"/></svg></summary>
-            <div class="faq__body"><p>Российские языковые модели. Документы заранее нарезаются на&nbsp;фрагменты; по&nbsp;вопросу система находит ближайшие по&nbsp;смыслу фрагменты, и&nbsp;модель отвечает только по&nbsp;ним. Этот подход называется RAG&nbsp;— генерация с&nbsp;опорой на&nbsp;найденные документы.</p></div>
+          <details class="faq__item" name="faq">
+            <summary class="faq__q"><span class="faq__n mono">04</span><span class="faq__text">Какие модели используются?</span><span class="faq__sign" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Языковые модели у&nbsp;российских облачных провайдеров. По&nbsp;вопросу kronto находит ближайшие по&nbsp;смыслу фрагменты документов, и&nbsp;модель отвечает только по&nbsp;ним&nbsp;— этот подход называется RAG, генерация с&nbsp;опорой на&nbsp;найденные документы.</p></div>
           </details>
-          <details class="faq__item">
-            <summary>Какие системы можно подключить?<svg width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron"/></svg></summary>
-            <div class="faq__body"><p>Можно загрузить файлы&nbsp;— Word, PowerPoint, PDF и&nbsp;другие форматы&nbsp;— или подключить Битрикс24, Confluence Server / Data Center, Яндекс Диск и&nbsp;Вики. Адаптер к&nbsp;другой системе сделаем в&nbsp;тарифе Enterprise.</p></div>
+          <details class="faq__item" name="faq">
+            <summary class="faq__q"><span class="faq__n mono">05</span><span class="faq__text">Какие системы можно подключить?</span><span class="faq__sign" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Файлы Word, Excel, PowerPoint, PDF, текст и&nbsp;Markdown, а&nbsp;ещё Битрикс24, Яндекс Диск и&nbsp;Яндекс Вики, Confluence Server и&nbsp;Data Center. Другую систему подключим в&nbsp;тарифе «Корпоративный».</p></div>
           </details>
-          <details class="faq__item">
-            <summary>Сколько стоит?<svg width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron"/></svg></summary>
-            <div class="faq__body"><p>Pro&nbsp;— 990&nbsp;₽ за&nbsp;сотрудника в&nbsp;месяц, до&nbsp;пяти базовых коннекторов. Max&nbsp;— 1&nbsp;990&nbsp;₽: любое число базовых коннекторов и&nbsp;больший пул запросов. Enterprise&nbsp;— по&nbsp;запросу. Внедрение бесплатно, первый месяц пилота&nbsp;— тоже.</p></div>
+          <details class="faq__item" name="faq">
+            <summary class="faq__q"><span class="faq__n mono">06</span><span class="faq__text">Сколько стоит?</span><span class="faq__sign" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>«Базовый»&nbsp;— 990&nbsp;₽ и&nbsp;«Расширенный»&nbsp;— 1&nbsp;290&nbsp;₽ за&nbsp;место в&nbsp;месяц, «Корпоративный»&nbsp;— по&nbsp;запросу. Внедрение бесплатно. Что входит в&nbsp;каждый&nbsp;— в&nbsp;разделе <a href="#pricing">«Тарифы»</a>.</p></div>
           </details>
-          <details class="faq__item">
-            <summary>Сколько документов нужно для старта?<svg width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron"/></svg></summary>
-            <div class="faq__body"><p>Минимума нет&nbsp;— достаточно одного документа в&nbsp;цифровом виде. Чем больше документов подключено, тем чаще kronto находит ответ.</p></div>
+          <details class="faq__item" name="faq">
+            <summary class="faq__q"><span class="faq__n mono">07</span><span class="faq__text">Кто видит вопросы сотрудников?</span><span class="faq__sign" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Сам сотрудник&nbsp;— свои диалоги. Администратор компании видит частые вопросы и&nbsp;пробелы в&nbsp;документах обезличенно, без имён. Поделиться диалогом с&nbsp;коллегой сотрудник может сам, ссылкой.</p></div>
           </details>
-          <details class="faq__item">
-            <summary>Нужна ли нам своя IT-команда для поддержки?<svg width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron"/></svg></summary>
-            <div class="faq__body"><p>Нет. Подключение и&nbsp;сопровождение берём на&nbsp;себя. От&nbsp;вашей IT-службы понадобится выдать доступ к&nbsp;источникам документов.</p></div>
+          <details class="faq__item" name="faq">
+            <summary class="faq__q"><span class="faq__n mono">08</span><span class="faq__text">Сколько документов нужно для старта?</span><span class="faq__sign" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Минимума нет&nbsp;— достаточно одного документа в&nbsp;цифровом виде. Чем больше документов подключено, тем чаще kronto находит ответ.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary class="faq__q"><span class="faq__n mono">09</span><span class="faq__text">Нужна ли&nbsp;своя IT-команда?</span><span class="faq__sign" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Нет. Подключение и&nbsp;сопровождение берём на&nbsp;себя. От&nbsp;вашей IT-службы понадобится выдать доступ к&nbsp;системам, где лежат документы.</p></div>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- ═════════ 5.15 Форма ═════════ -->
-    <section class="section section--surface" id="pilot" aria-labelledby="pilot-title">
-      <div class="container pilot">
-        <div class="pilot__intro">
-          <p class="mono section-label">пилот</p>
-          <h2 id="pilot-title">Обсудим пилот на&nbsp;ваших документах</h2>
-          <p class="lead">Первый месяц бесплатно. Расскажите о&nbsp;компании&nbsp;— мы&nbsp;ответим и&nbsp;договоримся о&nbsp;созвоне.</p>
-          <div class="contacts">
-            <p class="mono muted">или напишите напрямую</p>
-            <ul>
-              <li><a href="mailto:info@krontoai.ru"><svg width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#i-mail"/></svg>info@krontoai.ru</a></li>
-              <li><a href="https://t.me/stukalich"><svg width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#i-send"/></svg>@stukalich</a></li>
-            </ul>
-          </div>
+    <!-- ═════════ 08 Созвон ═════════ -->
+    <section class="contact on-dark" id="contact" aria-labelledby="contact-title">
+      <kronto-waves class="bg-art" seed="9" palette="night" tilt="-0.6" freq="2.8"></kronto-waves>
+      <div class="wrap contact__grid">
+        <div class="contact__intro">
+          <span class="eyebrow">08 / Созвон</span>
+          <h2 class="contact__title" id="contact-title">Покажем kronto на&nbsp;ваших документах</h2>
+          <p class="contact__text">Оставьте телефон и&nbsp;выберите, когда удобно поговорить. Внедрение бесплатно&nbsp;— подключаем всё вместе с&nbsp;вами.</p>
+          <ol class="contact__steps">
+            <li><span class="contact__step-n mono">1</span>Перезвоним в&nbsp;выбранное время и&nbsp;подтвердим созвон</li>
+            <li><span class="contact__step-n mono">2</span>Покажем kronto на&nbsp;ваших задачах и&nbsp;документах</li>
+            <li><span class="contact__step-n mono">3</span>Подключим источники вместе с&nbsp;вашей IT-службой</li>
+          </ol>
+          <ul class="contact__links">
+            <li><a href="mailto:info@krontoai.ru"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-mail"/></svg>info@krontoai.ru</a></li>
+            <li><a href="https://t.me/stukalich" rel="noopener"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-telegram"/></svg>Telegram @stukalich</a></li>
+          </ul>
         </div>
 
-        <div class="pilot__form-wrap">
-          <form class="form" data-pilot-form novalidate>
-            <div class="form__row">
+        <div class="contact__card">
+          <form class="lead-form" novalidate data-lead-form>
+            <p class="form-alert" role="alert" hidden data-form-alert></p>
+
+            <div class="field-row">
               <div class="field">
-                <label for="f-name">Имя</label>
-                <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err">
-                <p class="field__error" id="f-name-err" hidden></p>
-              </div>
-              <div class="field">
-                <label for="f-company">Компания</label>
-                <input id="f-company" name="company" type="text" autocomplete="organization" required aria-describedby="f-company-err">
-                <p class="field__error" id="f-company-err" hidden></p>
-              </div>
-            </div>
-            <div class="form__row">
-              <div class="field">
-                <label for="f-role">Должность</label>
-                <input id="f-role" name="role" type="text" autocomplete="organization-title" required aria-describedby="f-role-err">
-                <p class="field__error" id="f-role-err" hidden></p>
+                <label class="field__label" for="lead-name">Имя</label>
+                <input class="field__input" id="lead-name" name="contact_name" type="text" autocomplete="name" required minlength="2" maxlength="200" aria-describedby="lead-name-err">
+                <p class="field__error" id="lead-name-err" hidden></p>
               </div>
               <div class="field">
-                <label for="f-contact">E-mail или Telegram</label>
-                <input id="f-contact" name="contact" type="text" autocomplete="email" required placeholder="почта или @username" aria-describedby="f-contact-err">
-                <p class="field__error" id="f-contact-err" hidden></p>
+                <label class="field__label" for="lead-phone">Телефон</label>
+                <input class="field__input" id="lead-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="24" placeholder="+7" aria-describedby="lead-phone-err">
+                <p class="field__error" id="lead-phone-err" hidden></p>
               </div>
             </div>
-            <div class="field">
-              <label for="f-size">Число сотрудников</label>
-              <div class="select">
-                <select id="f-size" name="size" required aria-describedby="f-size-err">
-                  <option value="" selected disabled>Выберите</option>
-                  <option>до 30</option>
-                  <option>30–100</option>
-                  <option>100–250</option>
-                  <option>250–500</option>
-                  <option>500–1000</option>
-                  <option>больше 1000</option>
-                </select>
-                <svg width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chevron"/></svg>
+
+            <div class="field-row">
+              <div class="field">
+                <label class="field__label" for="lead-company">Компания</label>
+                <input class="field__input" id="lead-company" name="company_name" type="text" autocomplete="organization" required minlength="2" maxlength="200" aria-describedby="lead-company-err">
+                <p class="field__error" id="lead-company-err" hidden></p>
               </div>
-              <p class="field__error" id="f-size-err" hidden></p>
+              <div class="field">
+                <label class="field__label" for="lead-seats">Сотрудников за&nbsp;компьютером</label>
+                <input class="field__input" id="lead-seats" name="seats" type="text" inputmode="numeric" pattern="[0-9 ]*" autocomplete="off" required maxlength="7" placeholder="например, 120" aria-describedby="lead-seats-err">
+                <p class="field__error" id="lead-seats-err" hidden></p>
+              </div>
             </div>
-            <div class="field">
-              <label for="f-comment">Комментарий <span class="muted">— необязательно</span></label>
-              <textarea id="f-comment" name="comment" rows="4" placeholder="Какие документы хотите подключить, какие вопросы задают сотрудники"></textarea>
+
+            <fieldset class="choice">
+              <legend class="field__label">Тариф</legend>
+              <div class="segmented">
+                <label class="segmented__opt"><input type="radio" name="tariff" value="base" checked><span>Базовый</span></label>
+                <label class="segmented__opt"><input type="radio" name="tariff" value="extended"><span>Расширенный</span></label>
+                <label class="segmented__opt"><input type="radio" name="tariff" value="enterprise"><span>Корпоративный</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="choice" aria-describedby="lead-day-err">
+              <legend class="field__label">Когда перезвонить</legend>
+              <div class="days" data-days role="radiogroup" aria-label="День"></div>
+              <div class="slots" data-slots role="radiogroup" aria-label="Время"></div>
+              <p class="choice__hint" data-tz-hint>Время московское, только будни. Мы&nbsp;перезвоним и&nbsp;подтвердим созвон.</p>
+              <p class="field__error" id="lead-day-err" hidden></p>
+            </fieldset>
+
+            <div class="trap" aria-hidden="true">
+              <label>Сайт <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
             </div>
-            <button class="btn btn--dark form__submit" type="submit" disabled data-submit>Отправить заявку</button>
-            <noscript><p class="muted">Форма работает с&nbsp;включённым JavaScript. Напишите нам напрямую&nbsp;— контакты рядом.</p></noscript>
+
+            <div class="consent">
+              <input class="consent__box" id="lead-consent" name="consent" type="checkbox" required aria-describedby="lead-consent-err">
+              <label class="consent__label" for="lead-consent">Согласен на&nbsp;обработку персональных данных по <a href="privacy.html" target="_blank" rel="noopener">политике обработки данных</a></label>
+              <p class="field__error" id="lead-consent-err" hidden></p>
+            </div>
+
+            <button class="lead-form__submit" type="submit" data-submit>
+              <span data-submit-label>Записаться на&nbsp;созвон</span>
+              <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </button>
           </form>
 
-          <div class="form-done" data-form-done tabindex="-1" hidden>
-            <span class="dot form-done__icon" aria-hidden="true"><svg fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><use href="#i-check"/></svg></span>
-            <h3>Спасибо!</h3>
-            <p>Это демо-версия сайта, заявка не&nbsp;отправлена. Напишите нам напрямую:</p>
-            <ul class="form-done__contacts">
-              <li><a href="mailto:info@krontoai.ru">info@krontoai.ru</a></li>
-              <li><a href="https://t.me/stukalich">@stukalich</a></li>
-            </ul>
+          <div class="lead-done" hidden data-lead-done tabindex="-1">
+            <span class="lead-done__icon" aria-hidden="true"><svg class="icon" width="20" height="20"><use href="#i-check"/></svg></span>
+            <p class="lead-done__title">Заявка отправлена</p>
+            <p class="lead-done__text" data-lead-done-text>Перезвоним, чтобы подтвердить время созвона.</p>
           </div>
+
+          <noscript>
+            <p class="contact__noscript">Форма работает с&nbsp;включённым JavaScript. Напишите нам на <a href="mailto:info@krontoai.ru">info@krontoai.ru</a> или в <a href="https://t.me/stukalich">Telegram</a>&nbsp;— договоримся о&nbsp;созвоне.</p>
+          </noscript>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ═════════ 5.16 Подвал ═════════ -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="site-footer__bottom">
-        <p>© 2026 kronto</p>
-        <ul class="site-footer__contacts">
-          <li><a href="mailto:info@krontoai.ru">info@krontoai.ru</a></li>
-          <li><a href="https://t.me/stukalich">@stukalich</a></li>
-        </ul>
-        <a class="site-footer__top" href="#top">Наверх</a>
+  <!-- ═════════ Подвал ═════════ -->
+  <footer class="footer on-dark">
+    <div class="wrap footer__inner">
+      <div class="footer__top">
+        <p class="footer__about">ИИ-ассистент по&nbsp;документам компании</p>
+        <div class="footer__cols">
+          <div class="footer__col">
+            <p class="footer__head mono">Продукт</p>
+            <a href="#how">Как работает</a>
+            <a href="#demo">Демо</a>
+            <a href="#connectors">Подключения</a>
+            <a href="#pricing">Тарифы</a>
+          </div>
+          <div class="footer__col">
+            <p class="footer__head mono">Доверие</p>
+            <button class="footer__link-btn" type="button" data-dialog-open="security-dialog" aria-haspopup="dialog">Безопасность и&nbsp;данные</button>
+            <a href="#faq">Вопросы и&nbsp;ответы</a>
+            <a href="privacy.html">Обработка персональных данных</a>
+          </div>
+          <div class="footer__col">
+            <p class="footer__head mono">Связаться</p>
+            <a href="#contact">Записаться на&nbsp;созвон</a>
+            <a href="mailto:info@krontoai.ru">info@krontoai.ru</a>
+            <a href="https://t.me/stukalich" rel="noopener">Telegram @stukalich</a>
+          </div>
+        </div>
       </div>
+      <div class="footer__bottom mono"><span>Данные хранятся в&nbsp;России</span><span>© 2026 kronto</span></div>
+      <div class="footer__word" aria-hidden="true">kronto</div>
     </div>
   </footer>
+
+  <!-- Плавающая кнопка на телефоне -->
+  <div class="mobile-cta" data-mobile-cta hidden>
+    <a class="btn btn--teal mobile-cta__btn" href="#contact">Записаться на&nbsp;созвон<svg class="icon btn__arrow" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </div>
+
+  <!-- ═════════ Окно «Безопасность и данные» ═════════ -->
+  <dialog class="dialog" id="security-dialog" aria-labelledby="security-dialog-title">
+    <div class="dialog__panel">
+      <div class="dialog__head">
+        <div>
+          <p class="eyebrow">Безопасность и&nbsp;данные</p>
+          <h2 class="dialog__title" id="security-dialog-title">Как kronto обращается с&nbsp;документами компании</h2>
+        </div>
+        <button class="dialog__close" type="button" data-dialog-close aria-label="Закрыть">
+          <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
+      </div>
+      <div class="dialog__body prose">
+        <p class="prose__lead">Где хранятся данные, кто что видит, сколько хранится и&nbsp;как защищён вход. Подробности для службы безопасности пришлём по&nbsp;запросу.</p>
+
+        <h3>Где хранятся данные</h3>
+        <ul>
+          <li>Документы, вопросы и&nbsp;учётные записи хранятся на&nbsp;серверах в&nbsp;России.</li>
+          <li>Языковые модели работают у&nbsp;российских облачных провайдеров. Запросы к&nbsp;модели идут с&nbsp;запретом на&nbsp;сохранение их&nbsp;провайдером.</li>
+          <li>В&nbsp;модель уходят только фрагменты документов, нужные для ответа на&nbsp;вопрос,&nbsp;— не&nbsp;документы целиком.</li>
+          <li>В&nbsp;тарифе «Корпоративный» kronto можно установить в&nbsp;контур компании&nbsp;— на&nbsp;её&nbsp;серверы.</li>
+        </ul>
+
+        <h3>Изоляция компаний</h3>
+        <p>Сотрудник одной компании не&nbsp;видит данных другой&nbsp;— ни документов, ни вопросов, ни поиска. Каждый запрос к&nbsp;базе ограничен компанией трижды: в&nbsp;коде приложения, явным условием в&nbsp;запросах поиска и&nbsp;правилами самой базы данных (Row-Level Security). Если ошибётся одно из&nbsp;колец, данные защитят два других. Изоляцию проверяют автотесты при каждом изменении кода.</p>
+
+        <h3>Кто что видит внутри компании</h3>
+        <ul>
+          <li>Документы из&nbsp;подключённых систем видят те, кому они открыты в&nbsp;самой системе: Битрикс24, Яндекс 360, Confluence. Права обновляются при каждой синхронизации.</li>
+          <li>Загруженные файлы раскладываются по&nbsp;папкам; закрытую папку видят только её&nbsp;отделы.</li>
+          <li>Свои диалоги видит только сам сотрудник. Поделиться диалогом с&nbsp;коллегой он&nbsp;может сам, ссылкой, и&nbsp;сам же&nbsp;закрыть её.</li>
+          <li>Администратор видит частые вопросы и&nbsp;пробелы в&nbsp;документах обезличенно&nbsp;— без имён сотрудников.</li>
+        </ul>
+
+        <h3>Вход</h3>
+        <ul>
+          <li>Подтверждение почты при регистрации, пароль&nbsp;— не&nbsp;короче 12&nbsp;символов.</li>
+          <li>Второй фактор при входе для всех: код на&nbsp;почту, приложение-аутентификатор или ключ доступа. Администраторам&nbsp;— только приложение или ключ доступа.</li>
+          <li>Список сеансов и&nbsp;«выйти везде» в&nbsp;настройках; письмо о&nbsp;входе с&nbsp;нового устройства и&nbsp;о&nbsp;смене пароля или почты.</li>
+          <li>Сессия живёт в&nbsp;защищённой cookie, недоступной скриптам страницы; токен доступа&nbsp;— 15&nbsp;минут.</li>
+        </ul>
+
+        <h3>Что и&nbsp;сколько хранится</h3>
+        <dl class="prose__dl">
+          <dt>Загруженный файл</dt><dd>Оригинал не&nbsp;хранится&nbsp;— только извлечённый текст для поиска.</dd>
+          <dt>Текст документов</dt><dd>Пока администратор не&nbsp;удалит документ или подключение.</dd>
+          <dt>Журнал вопросов</dt><dd>90&nbsp;дней, без персональных данных: почта, телефоны, ФИО и&nbsp;номера документов заменяются маской.</dd>
+          <dt>Диалоги</dt><dd>Пока сотрудник их&nbsp;не&nbsp;удалит или не&nbsp;уйдёт из&nbsp;компании.</dd>
+          <dt>Журнал действий</dt><dd>365&nbsp;дней&nbsp;— для разбора инцидентов.</dd>
+        </dl>
+
+        <h3>Подключения к&nbsp;системам компании</h3>
+        <p>Ключи и&nbsp;токены подключённых систем хранятся в&nbsp;зашифрованном виде. kronto только читает документы и&nbsp;права доступа&nbsp;— ничего не&nbsp;меняет в&nbsp;ваших системах.</p>
+
+        <h3>Нашли уязвимость?</h3>
+        <p>Напишите на <a href="mailto:info@krontoai.ru">info@krontoai.ru</a> с&nbsp;шагами воспроизведения. Ответим в&nbsp;течение трёх рабочих дней.</p>
+      </div>
+    </div>
+  </dialog>
 </body>
 </html>

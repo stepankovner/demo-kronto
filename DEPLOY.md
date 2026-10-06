@@ -34,11 +34,25 @@ GitHub → репозиторий → **Settings → Pages** → *Build and depl
 Settings → Pages → Custom domain: должно стоять `krontoai.ru` и зелёная галочка *DNS check successful*.
 Когда сертификат выпущен (до 1 часа), поставьте галочку **Enforce HTTPS**.
 
+**Если сайт открывается только по `http://`** (так было 06.10: DNS настроен верно — четыре A-записи GitHub и CNAME `www`, CAA-записей нет, — но на `https://krontoai.ru` GitHub отдаёт сертификат `*.github.io`): сертификат для домена не выпустился. GitHub запрашивает его у Let's Encrypt только при сохранении домена, поэтому:
+
+1. Settings → Pages → Custom domain → **Remove**.
+2. Впишите `krontoai.ru` заново → **Save**. Дождитесь *DNS check successful*.
+3. Через 15–60 минут под полем появится «Certificate provisioned» (бывает до суток), галочка **Enforce HTTPS** станет активной — включите её. С этого момента `http://` и `www` перенаправляются на `https://krontoai.ru`.
+
+Проверка: `curl -sI https://krontoai.ru | head -1` — `HTTP/2 200` без ошибки сертификата.
+
+**Почему не на свой сервер.** Стенд `corp-ed` — прерываемый сервер Selectel, он выключается раз в сутки (RISKS №52 в `corp-ed`). Лендинг на нём лежал бы вместе со стендом. GitHub Pages бесплатно даёт CDN, HTTPS и аптайм, а если API записи недоступен, форма сама предлагает отправить заявку письмом или в Telegram. Переносить лендинг на свой nginx (вариант Б ниже) имеет смысл вместе с боевым, непрерываемым сервером.
+
 ### Как обновлять
 
 Правки в `main` публикуются сами. Если меняли CSS, JS или картинки, увеличьте `?v=` в `index.html` (см. `README.md`).
 
-Отличия от nginx-варианта: GitHub Pages не отдаёт заголовки из `deploy/kronto-site.conf` (CSP, кэш на год). Для демо-версии это не критично.
+Отличия от nginx-варианта: GitHub Pages не отдаёт заголовки из `deploy/kronto-site.conf` (кэш на год, `X-Frame-Options`). Политика безопасности (CSP) продублирована в `<meta http-equiv="Content-Security-Policy">` каждой страницы.
+
+### Форма записи на созвон
+
+Работает, когда на сервере API включён приём заявок и разрешён origin `https://krontoai.ru` — список переменных в `README.md`, раздел «Запись на созвон».
 
 ---
 
@@ -91,7 +105,7 @@ sudo chown -R $USER:$USER /var/www/kronto
 
 ## 4. Скопировать файлы
 
-С вашего компьютера, из папки `kronto-landing`:
+С вашего компьютера, из корня репозитория:
 
 ```bash
 ./deploy/deploy.sh
